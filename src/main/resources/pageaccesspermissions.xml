@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:list id="adminLinks" value-type="java.lang.String" list-class="java.util.ArrayList">
+        <value>checkinsearch.action</value>
+        <value>checkinview.action</value>
+        <value>checkinupdate.action</value>
+
+        <value>checkoutsearch.action</value>
+        <value>checkoutview.action</value>
+        <value>checkoutupdate.action</value>
+
+        <value>editregistration.action</value>
+        <value>getEditParentEntryForm.action</value>
+        <value>getRegisteredEntry.action</value>
+        <value>editregisteration.action</value>
+
+        <value>email.action</value>
+        <value>getEmail.action</value>
+        <value>getRegisteredFamilyDetails.action</value>
+        <value>wrongpassword.action</value>
+
+        <value>registration.action</value>
+        <value>createregistration.action</value>
+
+        <value>showcounts.action</value>
+        <value>viewcounts.action</value>
+
+        <value>adduser.action</value>
+        <value>addnewuser.action</value>
+
+        <value>reportpage.action</value>
+        <value>viewchildreport.action</value>
+        <value>pdfreport.action</value>
+
+        <value>viewusers.action</value>
+
+        <value>searchviewentry.action</value>
+        <value>searchview.action</value>
+    </util:list>
+
+    <util:list id="organizersLinks" value-type="java.lang.String" list-class="java.util.ArrayList">
+        <value>checkinsearch.action</value>
+        <value>checkinview.action</value>
+        <value>checkinupdate.action</value>
+
+        <value>checkoutsearch.action</value>
+        <value>checkoutview.action</value>
+        <value>checkoutupdate.action</value>
+
+        <value>editregistration.action</value>
+        <value>getEditParentEntryForm.action</value>
+        <value>getRegisteredEntry.action</value>
+        <value>editregisteration.action</value>
+
+        <value>email.action</value>
+        <value>getEmail.action</value>
+        <value>getRegisteredFamilyDetails.action</value>
+        <value>wrongpassword.action</value>
+
+        <value>registration.action</value>
+        <value>createregistration.action</value>
+
+        <value>showcounts.action</value>
+        <value>viewcounts.action</value>
+
+        <value>reportpage.action</value>
+        <value>viewchildreport.action</value>
+        <value>pdfreport.action</value>
+
+        <value>searchviewentry.action</value>
+        <value>searchview.action</value>
+
+    </util:list>
+
+</beans>

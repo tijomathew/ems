@@ -1,0 +1,122 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome-webfont.eot');
+    src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype'), url('../fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+html,
+body {
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+    padding-top: 90px;
+}
+footer {
+    padding: 30px 0;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all .25s ease-out;
+        -o-transition: all .25s ease-out;
+        transition: all .25s ease-out;
+    }
+
+    .row-offcanvas-right {
+        right: 0;
+    }
+
+    .row-offcanvas-left {
+        left: 0;
+    }
+
+    .row-offcanvas-right
+    .sidebar-offcanvas {
+        right: -50%; /* 6 columns */
+    }
+
+    .row-offcanvas-left
+    .sidebar-offcanvas {
+        left: -50%; /* 6 columns */
+    }
+
+    .row-offcanvas-right.active {
+        right: 50%; /* 6 columns */
+    }
+
+    .row-offcanvas-left.active {
+        left: 50%; /* 6 columns */
+    }
+
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+        width: 50%; /* 6 columns */
+    }
+}
+
+
+.mainWrapper{
+    padding:10px 50px;
+
+}
+.generalFormLayout .form-group{
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.headerColor{
+    background-color:#40a297 !important;
+    color:#fff !important;
+    font-weight: bold;
+    font-size: 18px;
+}
+.defaultBold{
+    font-weight:bold !important;
+}
+.commonGreenBtn{
+    background-color:#40a297 !important;
+    border: 0;
+
+}
+.topNavBg{
+    background-color:red;
+}
+.topNavBg h3{
+    font-size:35px;
+}
+
+.topNavBg h3 span{
+    font-size:24px;
+}
+
+.borderColor{
+    border-color: red;
+}
+
+.requiredField {
+    content: "*";
+    color: #ff0000;
+}
