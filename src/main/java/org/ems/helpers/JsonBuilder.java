@@ -1,10 +1,10 @@
-package org.rms.helpers;
+package org.ems.helpers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.rms.serializers.ChartResultRowSerializer;
-import org.rms.serializers.ResultSerializer;
-import org.rms.visualizations.ChartResultRow;
+import org.ems.serializers.ChartResultRowSerializer;
+import org.ems.serializers.ResultSerializer;
+import org.ems.visualizations.ChartResultRow;
 
 import java.util.List;
 

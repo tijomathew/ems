@@ -1,4 +1,4 @@
-package org.rms.services;
+package org.ems.services;
 
 /**
  * Created by Cufa User on 16/7/14.

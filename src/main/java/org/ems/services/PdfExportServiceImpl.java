@@ -1,11 +1,11 @@
-package org.rms.services;
+package org.ems.services;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import org.rms.models.ParentNode;
-import org.rms.models.StudentNode;
+import org.ems.models.ParentNode;
+import org.ems.models.StudentNode;
 import org.springframework.stereotype.Service;
 
 import java.io.File;

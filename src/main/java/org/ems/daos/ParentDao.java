@@ -1,6 +1,6 @@
-package org.rms.daos;
+package org.ems.daos;
 
-import org.rms.models.ParentNode;
+import org.ems.models.ParentNode;
 
 import java.util.List;
 

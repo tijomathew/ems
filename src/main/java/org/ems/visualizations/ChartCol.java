@@ -1,4 +1,4 @@
-package org.rms.visualizations;
+package org.ems.visualizations;
 
 /**
  * Created by tijo on 2/12/15.

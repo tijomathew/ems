@@ -1,9 +1,9 @@
-package org.rms.displaywrappers;
+package org.ems.displaywrappers;
 
 ;
 import org.apache.commons.beanutils.BeanUtils;
-import org.rms.helpers.GridRow;
-import org.rms.models.StudentNode;
+import org.ems.helpers.GridRow;
+import org.ems.models.StudentNode;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;

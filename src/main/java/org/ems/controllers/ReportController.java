@@ -1,12 +1,12 @@
-package org.rms.controllers;
+package org.ems.controllers;
 
-import org.rms.displaywrappers.ChildWrapper;
-import org.rms.helpers.GridRow;
-import org.rms.helpers.JsonBuilder;
-import org.rms.models.StudentNode;
-import org.rms.services.ChildService;
-import org.rms.services.ParentService;
-import org.rms.services.ReportService;
+import org.ems.displaywrappers.ChildWrapper;
+import org.ems.helpers.GridRow;
+import org.ems.helpers.JsonBuilder;
+import org.ems.models.StudentNode;
+import org.ems.services.ChildService;
+import org.ems.services.ParentService;
+import org.ems.services.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

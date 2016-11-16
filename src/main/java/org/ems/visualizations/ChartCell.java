@@ -1,4 +1,4 @@
-package org.rms.visualizations;
+package org.ems.visualizations;
 
 import com.google.gson.annotations.SerializedName;
 

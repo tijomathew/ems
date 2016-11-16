@@ -1,8 +1,8 @@
-package org.rms.daos;
+package org.ems.daos;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
-import org.rms.models.User;
+import org.ems.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

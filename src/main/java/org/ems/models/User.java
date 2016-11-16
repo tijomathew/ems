@@ -1,6 +1,6 @@
-package org.rms.models;
+package org.ems.models;
 
-import org.rms.enums.SystemRole;
+import org.ems.enums.SystemRole;
 
 import javax.persistence.*;
 import java.io.Serializable;

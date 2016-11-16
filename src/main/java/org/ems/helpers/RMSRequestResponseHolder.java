@@ -1,6 +1,6 @@
-package org.rms.helpers;
+package org.ems.helpers;
 
-import org.rms.models.User;
+import org.ems.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletRequestAttributes;

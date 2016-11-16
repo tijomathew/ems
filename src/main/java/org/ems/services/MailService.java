@@ -1,9 +1,9 @@
 
-package org.rms.services;
+package org.ems.services;
 
 
-import org.rms.models.ParentNode;
-import org.rms.models.User;
+import org.ems.models.ParentNode;
+import org.ems.models.User;
 
 /**
  * Created by tijo on 8/10/16.

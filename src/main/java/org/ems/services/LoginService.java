@@ -1,6 +1,6 @@
-package org.rms.services;
+package org.ems.services;
 
-import org.rms.models.User;
+import org.ems.models.User;
 
 /**
  * LoginService description

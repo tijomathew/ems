@@ -1,11 +1,11 @@
-package org.rms.serializers;
+package org.ems.serializers;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.reflect.TypeToken;
-import org.rms.helpers.GridRow;
+import org.ems.helpers.GridRow;
 
 import java.lang.reflect.Type;
 import java.util.List;

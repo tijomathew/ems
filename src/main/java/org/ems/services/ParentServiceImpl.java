@@ -1,7 +1,7 @@
-package org.rms.services;
+package org.ems.services;
 
-import org.rms.daos.ParentDao;
-import org.rms.models.ParentNode;
+import org.ems.daos.ParentDao;
+import org.ems.models.ParentNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

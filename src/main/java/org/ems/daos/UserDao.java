@@ -1,7 +1,7 @@
-package org.rms.daos;
+package org.ems.daos;
 
 
-import org.rms.models.User;
+import org.ems.models.User;
 
 import java.util.List;
 

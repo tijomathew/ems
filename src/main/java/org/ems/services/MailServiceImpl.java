@@ -1,8 +1,8 @@
-package org.rms.services;
+package org.ems.services;
 
 import org.apache.velocity.app.VelocityEngine;
-import org.rms.models.ParentNode;
-import org.rms.models.User;
+import org.ems.models.ParentNode;
+import org.ems.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;

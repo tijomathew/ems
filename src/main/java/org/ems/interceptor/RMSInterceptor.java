@@ -1,8 +1,8 @@
-package org.rms.interceptor;
+package org.ems.interceptor;
 
-import org.rms.enums.SystemRole;
-import org.rms.helpers.RequestResponseHolder;
-import org.rms.models.User;
+import org.ems.enums.SystemRole;
+import org.ems.helpers.RequestResponseHolder;
+import org.ems.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

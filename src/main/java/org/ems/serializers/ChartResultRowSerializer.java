@@ -1,13 +1,13 @@
-package org.rms.serializers;
+package org.ems.serializers;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.reflect.TypeToken;
-import org.rms.visualizations.ChartCol;
-import org.rms.visualizations.ChartResultRow;
-import org.rms.visualizations.ChartRow;
+import org.ems.visualizations.ChartCol;
+import org.ems.visualizations.ChartResultRow;
+import org.ems.visualizations.ChartRow;
 
 import java.lang.reflect.Type;
 import java.util.List;

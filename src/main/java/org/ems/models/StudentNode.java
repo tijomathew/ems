@@ -1,4 +1,4 @@
-package org.rms.models;
+package org.ems.models;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.LazyCollection;

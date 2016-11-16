@@ -1,9 +1,9 @@
-package org.rms.services;
+package org.ems.services;
 
 import com.sun.org.apache.xerces.internal.dom.ChildNode;
-import org.rms.models.ParentNode;
-import org.rms.models.StudentNode;
-import org.rms.visualizations.ChartResultContainer;
+import org.ems.models.ParentNode;
+import org.ems.models.StudentNode;
+import org.ems.visualizations.ChartResultContainer;
 
 import java.util.List;
 

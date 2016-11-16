@@ -1,7 +1,7 @@
-package org.rms.daos;
+package org.ems.daos;
 
 import com.sun.org.apache.xerces.internal.dom.ChildNode;
-import org.rms.models.StudentNode;
+import org.ems.models.StudentNode;
 
 import java.util.List;
 

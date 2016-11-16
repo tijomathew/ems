@@ -1,4 +1,4 @@
-package org.rms.daos;
+package org.ems.daos;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
@@ -7,7 +7,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.JoinType;
-import org.rms.models.ParentNode;
+import org.ems.models.ParentNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

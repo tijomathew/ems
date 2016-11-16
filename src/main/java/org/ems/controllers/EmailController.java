@@ -1,10 +1,10 @@
-package org.rms.controllers;
+package org.ems.controllers;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.rms.models.ParentNode;
-import org.rms.models.User;
-import org.rms.services.MailService;
-import org.rms.services.RegistrationService;
+import org.ems.models.ParentNode;
+import org.ems.models.User;
+import org.ems.services.MailService;
+import org.ems.services.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

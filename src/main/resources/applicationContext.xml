@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
-    <context:component-scan base-package="org.rms"/>
+    <context:component-scan base-package="org.ems"/>
 
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
@@ -29,9 +29,9 @@
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
-    <mvc:interceptors>
-        <bean class="org.rms.interceptor.RMSInterceptor"/>
-    </mvc:interceptors>
+   <!-- <mvc:interceptors>
+        <bean class="org.ems.interceptor.RMSInterceptor"/>
+    </mvc:interceptors>-->
 
     <mvc:annotation-driven/>
 
@@ -41,7 +41,7 @@
         <property name="configLocation">
             <value>classpath:hibernate.cfg.xml</value>
         </property>
-        <property name="packagesToScan" value="org.rms.models"/>
+        <property name="packagesToScan" value="org.ems.models"/>
     </bean>
 
     <tx:annotation-driven/>

@@ -1,7 +1,7 @@
-package org.rms.daos;
+package org.ems.daos;
 
-import org.rms.models.ParentNode;
-import org.rms.models.StudentNode;
+import org.ems.models.ParentNode;
+import org.ems.models.StudentNode;
 
 /**
  * Created by bibin on 5/10/16.

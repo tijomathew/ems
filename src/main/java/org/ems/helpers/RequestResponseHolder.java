@@ -1,6 +1,6 @@
-package org.rms.helpers;
+package org.ems.helpers;
 
-import org.rms.models.User;
+import org.ems.models.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,7 +1,7 @@
-package org.rms.services;
+package org.ems.services;
 
-import org.rms.models.User;
-import org.rms.visualizations.ChartResultContainer;
+import org.ems.models.User;
+import org.ems.visualizations.ChartResultContainer;
 import org.springframework.ui.Model;
 
 import java.util.List;

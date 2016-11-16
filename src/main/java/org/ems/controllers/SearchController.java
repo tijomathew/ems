@@ -1,8 +1,8 @@
-package org.rms.controllers;
+package org.ems.controllers;
 
-import org.rms.models.ParentNode;
-import org.rms.models.StudentNode;
-import org.rms.services.ParentService;
+import org.ems.models.ParentNode;
+import org.ems.models.StudentNode;
+import org.ems.services.ParentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

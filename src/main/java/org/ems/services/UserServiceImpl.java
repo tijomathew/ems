@@ -1,8 +1,8 @@
-package org.rms.services;
+package org.ems.services;
 
-import org.rms.daos.UserDao;
-import org.rms.models.User;
-import org.rms.visualizations.*;
+import org.ems.daos.UserDao;
+import org.ems.models.User;
+import org.ems.visualizations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package org.rms.models;
+package org.ems.models;
 
 import org.hibernate.annotations.*;
 

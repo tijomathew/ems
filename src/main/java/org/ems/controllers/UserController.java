@@ -1,12 +1,12 @@
-package org.rms.controllers;
+package org.ems.controllers;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.rms.helpers.JsonBuilder;
-import org.rms.models.User;
-import org.rms.services.LoginService;
-import org.rms.services.MailService;
-import org.rms.services.UserService;
-import org.rms.visualizations.ChartResultContainer;
+import org.ems.helpers.JsonBuilder;
+import org.ems.models.User;
+import org.ems.services.LoginService;
+import org.ems.services.MailService;
+import org.ems.services.UserService;
+import org.ems.visualizations.ChartResultContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

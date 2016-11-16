@@ -1,8 +1,8 @@
-package org.rms.services;
+package org.ems.services;
 
 import com.itextpdf.text.DocumentException;
-import org.rms.models.ParentNode;
-import org.rms.models.StudentNode;
+import org.ems.models.ParentNode;
+import org.ems.models.StudentNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

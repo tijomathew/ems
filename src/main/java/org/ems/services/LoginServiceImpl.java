@@ -1,7 +1,7 @@
-package org.rms.services;
+package org.ems.services;
 
-import org.rms.daos.LoginDao;
-import org.rms.models.User;
+import org.ems.daos.LoginDao;
+import org.ems.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

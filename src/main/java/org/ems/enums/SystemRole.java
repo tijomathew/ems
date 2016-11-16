@@ -1,4 +1,4 @@
-package org.rms.enums;
+package org.ems.enums;
 
 /**
  * User: Cufa User.
