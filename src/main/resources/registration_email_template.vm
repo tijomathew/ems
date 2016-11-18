@@ -5,8 +5,8 @@
     background-color: #dff0d8;
     border-color: #d6e9c6;opacity: 1;">
     <h3><b>Congratulations</b></h3>
-    You have successfully registered and given consent to below given students for attending Christine
-    retreat!!!<br><strong>Your family ID is: ${registeredParentNode.id}</strong> <br> Child IDs are
+    You have successfully registered and given consent to below given students for attending Blaze-Grace Lal
+    Seminar!!!<br><strong>Your family ID is: ${registeredParentNode.id}</strong> <br> Child IDs are
     given below.
 </div>
 <div style="padding: 15px;
@@ -48,9 +48,9 @@
         <tr>
             <th>Child ID&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Name&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Class&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Section&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Dates</th>
+            <th>Mass Centre&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Venue&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Day</th>
         </tr>
         </thead>
         <tbody>
@@ -58,22 +58,9 @@
             <tr>
                 <td>${studentNodeEntry.bandCode}</td>
                 <td>${studentNodeEntry.firstName} ${studentNodeEntry.lastName} </td>
-                <td>${studentNodeEntry.classDivision}</td>
-                <td>${studentNodeEntry.retreatSection}</td>
-                <td>
-                    #if($studentNodeEntry.dayOne)
-                        ${studentNodeEntry.dayOne}&nbsp;&nbsp;
-                    #end
-                    #if($studentNodeEntry.dayTwo)
-                        ${studentNodeEntry.dayTwo}&nbsp;&nbsp;
-                    #end
-                    #if($studentNodeEntry.dayThree)
-                        ${studentNodeEntry.dayThree}&nbsp;&nbsp;
-                    #end
-                    #if($studentNodeEntry.dayFour)
-                        ${studentNodeEntry.dayFour}
-                    #end
-                </td>
+                <td>${studentNodeEntry.massCentre}</td>
+                <td>${studentNodeEntry.venue}</td>
+                <td>${studentNodeEntry.day}</td>
             </tr>
             #end
         </tbody>
@@ -94,12 +81,12 @@
     </p>
 
     <p>
-        <i> <b>Event/Activity:</b> Christeen Retreat from October 29 to 1st November 2016 from 9.30 AM to
-            5.30 PM</i>
+        <i> <b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29 2016 from 9.30 AM to
+            4.00 PM</i>
     </p>
 
     <p>
-        <i><b>Venue:</b> Phibblestown Community Centre, Clonee, Blanchardstown, Dublin -15.</i>
+        <i><b>Venue:</b> Tallaght, Inchicore and Phibsboro</i>
     </p>
 
     <p>

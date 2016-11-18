@@ -29,23 +29,14 @@ public class StudentNode implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "class_division")
-    private String classDivision;
+    @Column(name = "mass_centre")
+    private String massCentre;
 
-    @Column(name = "retreat_section")
-    private String retreatSection;
+    @Column(name = "venue")
+    private String venue;
 
-    @Column(name = "day_one")
-    private String dayOne = StringUtils.EMPTY;
-
-    @Column(name = "day_two")
-    private String dayTwo = StringUtils.EMPTY;
-
-    @Column(name = "day_three")
-    private String dayThree = StringUtils.EMPTY;
-
-    @Column(name = "day_four")
-    private String dayFour = StringUtils.EMPTY;
+    @Column(name = "day")
+    private String day = StringUtils.EMPTY;
 
     @Column(name = "band_code")
     private String bandCode;
@@ -93,56 +84,28 @@ public class StudentNode implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getClassDivision() {
-        return classDivision;
+    public String getMassCentre() {
+        return massCentre;
     }
 
-    public void setClassDivision(String classDivision) {
-        this.classDivision = classDivision;
+    public void setMassCentre(String classDivision) {
+        this.massCentre = classDivision;
     }
 
-    public String getRetreatSection() {
-        return retreatSection;
+    public String getVenue() {
+        return venue;
     }
 
-    public void setRetreatSection(String retreatSection) {
-        this.retreatSection = retreatSection;
+    public void setVenue(String venue) {
+        this.venue = venue;
     }
 
-    public String getDayOne() {
-        dayOne = dayOne != null ? dayOne.replace("on", "").replace(",", "") : dayOne;
-        return dayOne;
+    public String getDay() {
+        return day;
     }
 
-    public void setDayOne(String dayOne) {
-        this.dayOne = dayOne;
-    }
-
-    public String getDayTwo() {
-        dayTwo = dayTwo != null ? dayTwo.replace("on", "").replace(",", "") : dayTwo;
-        return dayTwo;
-    }
-
-    public void setDayTwo(String dayTwo) {
-        this.dayTwo = dayTwo;
-    }
-
-    public String getDayThree() {
-        dayThree = dayThree != null ? dayThree.replace("on", "").replace(",", "") : dayThree;
-        return dayThree;
-    }
-
-    public void setDayThree(String dayThree) {
-        this.dayThree = dayThree;
-    }
-
-    public String getDayFour() {
-        dayFour = dayFour != null ? dayFour.replace("on", "").replace(",", "") : dayFour;
-        return dayFour;
-    }
-
-    public void setDayFour(String dayFour) {
-        this.dayFour = dayFour;
+    public void setDay(String day) {
+        this.day = day;
     }
 
     public String getBandCode() {
@@ -272,20 +235,7 @@ public class StudentNode implements Serializable {
     }
 
     public String getAllRegisteredDays() {
-        String dayNames = "";
-        if (getDayOne() != null) {
-            dayNames = getDayOne() + " ";
-        }
-        if (getDayTwo() != null) {
-            dayNames = dayNames.concat(getDayTwo()).concat(" ");
-        }
-        if (getDayThree() != null) {
-            dayNames = dayNames.concat(getDayThree()).concat(" ");
-        }
-        if (getDayFour() != null) {
-            dayNames = dayNames.concat(getDayFour()).concat(" ");
-        }
-        return dayNames;
+        return day;
     }
 
     private String getDateAsString() {
@@ -293,7 +243,7 @@ public class StudentNode implements Serializable {
         SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM-dd");
         String currentDateInStringFormat = dateFormatter.format(currentDate);
         if (currentDateInStringFormat.equalsIgnoreCase("Nov-01")) {
-            currentDateInStringFormat=currentDateInStringFormat.replace("0", "");
+            currentDateInStringFormat = currentDateInStringFormat.replace("0", "");
         }
         return currentDateInStringFormat;
     }

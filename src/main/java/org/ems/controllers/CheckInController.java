@@ -59,7 +59,7 @@ public class CheckInController {
                 while (studentNodeIterator.hasNext()) {
                     StudentNode studentNode = studentNodeIterator.next();
 
-                    if (getCurrentDateAsString().equals("Oct-29")) {
+                  /*  if (getCurrentDateAsString().equals("Oct-29")) {
                         if (studentNode.getDayOne() == null)
                             studentNodeIterator.remove();
                     }
@@ -74,7 +74,7 @@ public class CheckInController {
                     if (getCurrentDateAsString().equals("Nov-1")) {
                         if (studentNode.getDayFour() == null)
                             studentNodeIterator.remove();
-                    }
+                    }*/
                 }
                 HttpSession httpSession = httpServletRequest.getSession();
                 httpSession.setAttribute("checkInParent", retrievedParentNode);

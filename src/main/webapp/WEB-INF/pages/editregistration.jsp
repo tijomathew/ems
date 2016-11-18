@@ -24,13 +24,13 @@
 
             $("button.addButton").hide();
 
+            $("#consentChecked").removeAttr('checked','checked');
+            $("#saveButton").attr('disabled', 'disabled');
+
             if ($("#medicalInfoChecked").prop('checked')) {
                 $("#medicalInformation").css('display', 'block');
             }
 
-            $(function () {
-                $(document).tooltip();
-            });
             $("#consentChecked").click(function () {
                 if ($("#consentChecked").prop('checked')) {
                     $("#saveButton").removeAttr('disabled', 'disabled');
@@ -138,6 +138,14 @@
                     $("#addressLineTwo").addClass('borderColor');
                 }
 
+                if ($("#phoneNumber").val() != "" && $("#alternativePhoneNumber").val() != "") {
+                    if ($("#phoneNumber").val() == $("#alternativePhoneNumber").val()) {
+                        submitFlag = false;
+                        alertMessage = 'Please enter different alternative number and save again';
+                        $("#alternativePhoneNumber").addClass('borderColor');
+                    }
+                }
+
                 if (!validateChildData()) {
                     alertMessage = 'Please fill the Child Data in the provided box';
                     submitFlag = false;
@@ -234,12 +242,9 @@
                         .find('[name="studentNodeList[0].id"]').val('').attr('name', 'studentNodeList[' + i + '].id').attr('id', 'id' + i).end()
                         .find('[name="studentNodeList[0].firstName"]').val('').attr('name', 'studentNodeList[' + i + '].firstName').attr('id', 'firstName' + i).end()
                         .find('[name="studentNodeList[0].lastName"]').val('').attr('name', 'studentNodeList[' + i + '].lastName').attr('id', 'lastName' + i).end()
-                        .find('[name="studentNodeList[0].classDivision"]').val('0').attr('name', 'studentNodeList[' + i + '].classDivision').attr('id', 'classDivision' + i).end()
-                        .find('[name="studentNodeList[0].retreatSection"]').val('').attr('name', 'studentNodeList[' + i + '].retreatSection').attr('id', 'retreatSection' + i).end()
-                        .find('[name="studentNodeList[0].dayOne"]').val('Oct-29').attr('checked', false).attr('name', 'studentNodeList[' + i + '].dayOne').attr('id', 'dayOne' + i).end()
-                        .find('[name="studentNodeList[0].dayTwo"]').val('Oct-30').attr('checked', false).attr('name', 'studentNodeList[' + i + '].dayTwo').attr('id', 'dayTwo' + i).end()
-                        .find('[name="studentNodeList[0].dayThree"]').val('Oct-31').attr('checked', false).attr('name', 'studentNodeList[' + i + '].dayThree').attr('id', 'dayThree' + i).end()
-                        .find('[name="studentNodeList[0].dayFour"]').val('Nov-1').attr('checked', false).attr('name', 'studentNodeList[' + i + '].dayFour').attr('id', 'dayFour' + i).end()
+                        .find('[name="studentNodeList[0].massCentre"]').val('0').attr('name', 'studentNodeList[' + i + '].massCentre').attr('id', 'massCentre' + i).end()
+                        .find('[name="studentNodeList[0].venue"]').val('').attr('name', 'studentNodeList[' + i + '].venue').attr('id', 'venue' + i).end()
+                        .find('[name="studentNodeList[0].day"]').val('').attr('name', 'studentNodeList[' + i + '].day').attr('id', 'day' + i).end()
                         .find("button.deleteChildRow").closest("div.hidden").removeClass("hidden").end()
             }
 
@@ -252,24 +257,29 @@
             if (elementId != null) {
 
                 var selectedClass = $('#' + elementId).val();
-                var sectionId = $('#' + elementId).closest('div.panel-body').find("input[id ^= retreatSection]").attr("id");
-
+                var sectionId = $('#' + elementId).closest('div.panel-body').find("input[id ^= venue]").attr("id");
                 switch (selectedClass) {
                     case "0":
                         $('#' + sectionId).val('');
-                    case "8-12":
-                        $('#' + sectionId).val("Junior");
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= dayFour]").parent().css("display", "none");
-                        ;
+                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val('');
                         break;
-                    case "13-17":
-                        $('#' + sectionId).val("Senior");
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= dayFour]").parent().css("display", "block");
-                        ;
+                    case "Tallaght":
+                    case "Bray":
+                    case "St.Josephs":
+                        $('#' + sectionId).val("Tallaght");
+                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("27-12-2016");
                         break;
-                    case "18+":
-                        $('#' + sectionId).val("SuperSenior");
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= dayFour]").parent().css("display", "block");
+                    case "Inchicore":
+                    case "Blanchardstown":
+                    case "Lucan":
+                        $('#' + sectionId).val("Inchicore");
+                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("28-12-2016");
+                        break;
+                    case "Phibsboro":
+                    case "Beaumont":
+                    case "Swords":
+                        $('#' + sectionId).val("Phibsboro");
+                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("29-12-2016");
                         break;
 
                 }
@@ -287,16 +297,13 @@
             $("#id${count.index}").val("${element.id}");
             $("#firstName${count.index}").val("${element.firstName}");
             $("#lastName${count.index}").val("${element.lastName}");
-            $("#classDivision${count.index}").val("${element.classDivision}");
-            $("#retreatSection${count.index}").val("${element.retreatSection}");
-            $("#dayOne${count.index}").prop("checked", ${element.dayOne eq 'Oct-29'});
-            $("#dayTwo${count.index}").prop("checked", ${element.dayTwo eq 'Oct-30'});
-            $("#dayThree${count.index}").prop("checked", ${element.dayThree eq 'Oct-31'});
-            $("#dayFour${count.index}").prop("checked", ${element.dayFour eq 'Nov-1'});
+            $("#massCentre${count.index}").val("${element.massCentre}");
+            $("#venue${count.index}").val("${element.venue}");
+            $("#day${count.index}").val("${element.day}");
 
             </c:forEach>
             if (validateChildData())
-                $(".addButton").show();
+                $("button.addButton").show();
         });
 
     </script>
@@ -309,25 +316,25 @@
 <form:form role="form" id="registration-form" modelAttribute="parentNodeForm"
            action="${pageContext.request.contextPath}/editregistration.action"
            method="post">
-    <div class="container">
-        <ul class="nav nav-pills">
-            <li><a href="showcounts.action">Show Counts</a></li>
-            <c:if test="${currentUser.systemRole == 'ADMIN'}">
-                <li><a href="adduser.action">Add Users</a></li>
-            </c:if>
-            <li><a href="checkinsearch.action">Check In</a></li>
-            <li><a href="checkoutsearch.action">Check Out</a></li>
-            <li><a href="registration.action">Registration</a></li>
-            <li class="active"><a href="getEditParentEntryForm.action">Edit</a></li>
-            <li><a href="searchviewentry.action">Search</a></li>
-            <li><a href="reportpage.action">Report</a></li>
-            <li><a href="logout.action">Logout</a></li>
-        </ul>
-    </div>
+    <%-- <div class="container">
+         <ul class="nav nav-pills">
+             <li><a href="showcounts.action">Show Counts</a></li>
+             <c:if test="${currentUser.systemRole == 'ADMIN'}">
+                 <li><a href="adduser.action">Add Users</a></li>
+             </c:if>
+             <li><a href="checkinsearch.action">Check In</a></li>
+             <li><a href="checkoutsearch.action">Check Out</a></li>
+             <li><a href="registration.action">Registration</a></li>
+             <li class="active"><a href="getEditParentEntryForm.action">Edit</a></li>
+             <li><a href="searchviewentry.action">Search</a></li>
+             <li><a href="reportpage.action">Report</a></li>
+             <li><a href="logout.action">Logout</a></li>
+         </ul>
+     </div>--%>
     <div class="mainWrapper">
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-xs-12 col-sm-12">
-                <h3 class="defaultBold">Retreat Registration Form</h3>
+                <h3 class="defaultBold">Seminar Registration Form</h3>
 
                 <div class="panel panel-default">
                     <div class="panel-heading headerColor">Parent/Guardian Details</div>
@@ -473,133 +480,119 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="studentNodeList[0].classDivision">Age Range:<span
+                                    <label for="studentNodeList[0].massCentre">Mass Centre:<span
                                             style="color: red">*</span></label>
-                                    <form:select class="form-control" path="studentNodeList[0].classDivision"
-                                                 id="classDivision0" onchange="callSectionUpdate($(this).attr('id'))">
+                                    <form:select class="form-control" path="studentNodeList[0].massCentre"
+                                                 id="massCentre0" onchange="callSectionUpdate($(this).attr('id'))">
                                         <form:option value="0">--Select--</form:option>
-                                        <form:option value="8-12">8 - 12</form:option>
-                                        <form:option value="13-17">13 - 17</form:option>
-                                        <form:option value="18+">18+</form:option>
+                                        <form:option value="Tallaght">Tallaght</form:option>
+                                        <form:option value="Bray">Bray</form:option>
+                                        <form:option value="St.Joseph's">St.Joseph's</form:option>
+                                        <form:option value="Inchicore">Inchicore</form:option>
+                                        <form:option value="Blanchardstown">Blanchardstown</form:option>
+                                        <form:option value="Lucan">Lucan</form:option>
+                                        <form:option value="Phibsboro">Phibsboro</form:option>
+                                        <form:option value="Beaumont">Beaumont</form:option>
+                                        <form:option value="Swords">Swords</form:option>
                                     </form:select>
                                 </div>
 
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="studentNodeList[0].retreatSection">Section:<span
+                                    <label for="studentNodeList[0].venue">Venue:<span
                                             style="color: red">*</span></label>
-                                    <form:input class="form-control" path="studentNodeList[0].retreatSection"
-                                                id="retreatSection0" readonly="true"/>
+                                    <form:input class="form-control" path="studentNodeList[0].venue"
+                                                id="venue0" readonly="true"/>
                                 </div>
 
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <div class="col-md-3 text-center">
-                                        <label>Oct-29</label><br/>
-                                        <form:checkbox path="studentNodeList[0].dayOne"
-                                                       id="dayOne0" value="Oct-29"/>
+                                    <label>Day<span style="color: red">*</span></label>
+                                    <form:input class="form-control" path="studentNodeList[0].day"
+                                                id="day0" readonly="true"/>
 
-                                    </div>
-                                    <div class="col-md-3 text-center">
-                                        <label>Oct-30</label><br/>
-                                        <form:checkbox path="studentNodeList[0].dayTwo"
-                                                       id="dayTwo0" value="Oct-30"/>
-
-                                    </div>
-                                    <div class="col-md-3 text-center">
-                                        <label>Oct-31</label><br/>
-                                        <form:checkbox path="studentNodeList[0].dayThree"
-                                                       id="dayThree0" value="Oct-31"/>
-
-                                    </div>
-                                    <div class="col-md-3 text-center" style="display: none;">
-                                        <label>Nov-1</label><br/>
-                                        <form:checkbox path="studentNodeList[0].dayFour"
-                                                       id="dayFour0" value="Nov-1"/>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-1 hidden">
-                                <div class="form-group vcenter">
-                                    <label>Delete</label>
-                                    <button type="button" class="btn btn-danger deleteChildRow" data-type="minus"><span
-                                            class="glyphicon glyphicon-minus"></span></button>
                                 </div>
                             </div>
                         </div>
-
+                        <div class="col-md-1 hidden">
+                            <div class="form-group vcenter">
+                                <label>Delete</label>
+                                <button type="button" class="btn btn-danger deleteChildRow" data-type="minus"><span
+                                        class="glyphicon glyphicon-minus"></span></button>
+                            </div>
+                        </div>
                     </div>
                     <button type="button" class="btn btn-primary addButton commonGreenBtn" id=""
                             name="actionButton">
                         Add Child
                     </button>
+
                 </div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading headerColor">Consent Form</div>
-                    <div class="panel-body" id="consentInfoTemplate">
 
-                        <div>
-                            Dear Parent/Guardian,<br>
-                            The consent form is necessary to allow Syro Malabar Catholic Church Dublin, Ireland to
-                            provide
-                            the best ‘duty of care’ to the children in its care during the events as mentioned below. It
-                            gives permission for your son/daughter to take part and also necessary to ensure
-                            Children’s leaders are aware of any medical, learning issues associated with your
-                            son/daughter so that we can give them a positive and engaging experience.<br>
+            <div class="panel panel-default">
+                <div class="panel-heading headerColor">Consent Form</div>
+                <div class="panel-body" id="consentInfoTemplate">
 
-                            <i><b>Event/Activity:</b> Christeen Retreat from October 29 to 1st November 2016 from 9.30
-                                AM to
-                                5.30 PM<br>
-                                <b>Venue:</b> Phibblestown Community Centre, Clonee, Blanchardstown, Dublin
-                                -15.</i><br>
-                            1. I have read all the information provided concerning the programme of the above
-                            activity.<br>
-                            2. I hereby give permission for my son/daughter/ward to participate in the above
-                            activity.<br>
-                            3. I accept that my child may be included in photos/videos from the above activity that
-                            might be published by the parish.<br>
-                            4. Syro Malabar Catholic Church Dublin, Ireland only accept liability or responsibility for
-                            an incident or accident caused by the negligence or breach of statutory duty of the
-                            organisation its servants or agents.<br><br>
+                    <div>
+                        Dear Parent/Guardian,<br>
+                        The consent form is necessary to allow Syro Malabar Catholic Church Dublin, Ireland to
+                        provide
+                        the best ‘duty of care’ to the children in its care during the events as mentioned below. It
+                        gives permission for your son/daughter to take part and also necessary to ensure
+                        Children’s leaders are aware of any medical, learning issues associated with your
+                        son/daughter so that we can give them a positive and engaging experience.<br>
 
-                            <div class="panel panel-warning">
-                                <div class="panel-heading"><b>Important</b></div>
-                                <div class="panel-body">If there is any medical condition/special requirement for your
-                                    child required, which the organisers ought to be aware, please click on the check
-                                    box and enter details in the text box.&nbsp;&nbsp;<form:checkbox
-                                            path="medicalInfoFlag"
-                                            style="width:15px;height:15px;"
-                                            id="medicalInfoChecked"/>
-                                </div>
-                                <div>
+                        <i><b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29 2016 from 9.30 AM
+                            to
+                            4.00 PM<br>
+                            <b>Venue:</b> Tallaght, Inchicore and Phibsboro</i><br>
+                        1. I have read all the information provided concerning the programme of the above
+                        activity.<br>
+                        2. I hereby give permission for my son/daughter/ward to participate in the above
+                        activity.<br>
+                        3. I accept that my child may be included in photos/videos from the above activity that
+                        might be published by the parish.<br>
+                        4. Syro Malabar Catholic Church Dublin, Ireland only accept liability or responsibility for
+                        an incident or accident caused by the negligence or breach of statutory duty of the
+                        organisation its servants or agents.<br><br>
 
-                                    <div><form:textarea path="medicalInformation" id="medicalInformation"
-                                                        style="display:none" class="form-control"
-                                                        placeholder="Please enter details here..."></form:textarea></div>
-                                </div>
+                        <div class="panel panel-warning">
+                            <div class="panel-heading"><b>Important</b></div>
+                            <div class="panel-body">If there is any medical condition/special requirement for your
+                                child required, which the organisers ought to be aware, please click on the check
+                                box and enter details in the text box.&nbsp;&nbsp;<form:checkbox
+                                        path="medicalInfoFlag"
+                                        style="width:15px;height:15px;"
+                                        id="medicalInfoChecked"/>
+                            </div>
+                            <div>
+
+                                <div><form:textarea path="medicalInformation" id="medicalInformation"
+                                                    style="display:none" class="form-control"
+                                                    placeholder="Please enter details here..."></form:textarea></div>
                             </div>
                         </div>
+                    </div>
 
-                        <div>
-                            <form:checkbox path="consentSigned" style="width:15px;height:15px;" id="consentChecked"/>
-                            &nbsp;&nbsp;<strong>By
-                            checking the checkbox, you are giving your consent for the above child/children.</strong>
-                        </div>
+                    <div>
+                        <form:checkbox path="consentSigned" style="width:15px;height:15px;" id="consentChecked"/>
+                        &nbsp;&nbsp;<strong>By
+                        checking the checkbox, you are giving your consent for the above child/children.</strong>
                     </div>
                 </div>
-                <div style="text-align: center">
-                    <button type="button" class="btn btn-primary commonGreenBtn" style="min-width:140px;"
-                            id="saveButton" title="Agree Consent Form To Activate Save Button">Save
-                    </button>
-                </div>
-
-
             </div>
+            <div style="text-align: center">
+                <button type="button" class="btn btn-primary commonGreenBtn" style="min-width:140px;"
+                        id="saveButton" title="Agree Consent Form To Activate Save Button">Save
+                </button>
+            </div>
+
+
         </div>
+    </div>
     </div>
 
 </form:form>

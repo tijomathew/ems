@@ -29,9 +29,9 @@
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
-   <!-- <mvc:interceptors>
+    <mvc:interceptors>
         <bean class="org.ems.interceptor.RMSInterceptor"/>
-    </mvc:interceptors>-->
+    </mvc:interceptors>
 
     <mvc:annotation-driven/>
 

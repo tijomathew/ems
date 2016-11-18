@@ -24,9 +24,6 @@
             $("#saveButton").attr('disabled', 'disabled');
             $("button.addButton").hide();
 
-            $(function () {
-                $(document).tooltip();
-            });
             $("#consentChecked").click(function () {
                 if ($("#consentChecked").prop('checked')) {
                     $("#saveButton").removeAttr('disabled', 'disabled');
@@ -135,6 +132,14 @@
                     $("#addressLineTwo").addClass('borderColor');
                 }
 
+                if ($("#phoneNumber").val() != "" && $("#alternativePhoneNumber").val() != "") {
+                    if ($("#phoneNumber").val() == $("#alternativePhoneNumber").val()) {
+                        submitFlag = false;
+                        alertMessage = 'Please enter different alternative number and save again';
+                        $("#alternativePhoneNumber").addClass('borderColor');
+                    }
+                }
+
                 if (!validateChildData()) {
                     alertMessage = 'Please fill the Child Data in the provided box';
                     submitFlag = false;
@@ -231,12 +236,9 @@
                         .find('[name="studentNodeList[0].id"]').val('').attr('name', 'studentNodeList[' + i + '].id').attr('id', 'id' + i).end()
                         .find('[name="studentNodeList[0].firstName"]').val('').attr('name', 'studentNodeList[' + i + '].firstName').attr('id', 'firstName' + i).end()
                         .find('[name="studentNodeList[0].lastName"]').val('').attr('name', 'studentNodeList[' + i + '].lastName').attr('id', 'lastName' + i).end()
-                        .find('[name="studentNodeList[0].classDivision"]').attr('name', 'studentNodeList[' + i + '].classDivision').attr('id', 'classDivision' + i).end()
-                        .find('[name="studentNodeList[0].retreatSection"]').val('').attr('name', 'studentNodeList[' + i + '].retreatSection').attr('id', 'retreatSection' + i).end()
-                        .find('[name="studentNodeList[0].dayOne"]').val('Oct-29').attr('checked', false).attr('name', 'studentNodeList[' + i + '].dayOne').attr('id', 'dayOne' + i).end()
-                        .find('[name="studentNodeList[0].dayTwo"]').val('Oct-30').attr('checked', false).attr('name', 'studentNodeList[' + i + '].dayTwo').attr('id', 'dayTwo' + i).end()
-                        .find('[name="studentNodeList[0].dayThree"]').val('Oct-31').attr('checked', false).attr('name', 'studentNodeList[' + i + '].dayThree').attr('id', 'dayThree' + i).end()
-                        .find('[name="studentNodeList[0].dayFour"]').val('Nov-1').attr('checked', false).attr('name', 'studentNodeList[' + i + '].dayFour').attr('id', 'dayFour' + i).end()
+                        .find('[name="studentNodeList[0].massCentre"]').attr('name', 'studentNodeList[' + i + '].massCentre').attr('id', 'massCentre' + i).end()
+                        .find('[name="studentNodeList[0].venue"]').val('').attr('name', 'studentNodeList[' + i + '].venue').attr('id', 'venue' + i).end()
+                        .find('[name="studentNodeList[0].day"]').val('').attr('name', 'studentNodeList[' + i + '].day').attr('id', 'day' + i).end()
                         .find("button.deleteChildRow").closest("div.hidden").removeClass("hidden").end()
                 // .find('[name = actionButton]').removeAttr('class').attr('class', 'btn btn-primary removeButton commonGreenBtn').text("Remove Child").find('.fa-plus').removeAttr('class').attr('class', 'fa fa-minus');
 
@@ -251,24 +253,29 @@
             if (elementId != null) {
 
                 var selectedClass = $('#' + elementId).val();
-                var sectionId = $('#' + elementId).closest('div.panel-body').find("input[id ^= retreatSection]").attr("id");
-
+                var sectionId = $('#' + elementId).closest('div.panel-body').find("input[id ^= venue]").attr("id");
                 switch (selectedClass) {
                     case "0":
                         $('#' + sectionId).val('');
-                    case "8-12":
-                        $('#' + sectionId).val("Junior");
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= dayFour]").parent().css("display", "none");
-                        ;
+                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val('');
                         break;
-                    case "13-17":
-                        $('#' + sectionId).val("Senior");
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= dayFour]").parent().css("display", "block");
-                        ;
+                    case "Tallaght":
+                    case "Bray":
+                    case "St.Josephs":
+                        $('#' + sectionId).val("Tallaght");
+                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("27-12-2016");
                         break;
-                    case "18+":
-                        $('#' + sectionId).val("SuperSenior");
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= dayFour]").parent().css("display", "block");
+                    case "Inchicore":
+                    case "Blanchardstown":
+                    case "Lucan":
+                        $('#' + sectionId).val("Inchicore");
+                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("28-12-2016");
+                        break;
+                    case "Phibsboro":
+                    case "Beaumont":
+                    case "Swords":
+                        $('#' + sectionId).val("Phibsboro");
+                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("29-12-2016");
                         break;
 
                 }
@@ -286,7 +293,7 @@
 <form:form role="form" id="registration-form" modelAttribute="parentNodeForm"
            action="${pageContext.request.contextPath}/createregistration.action"
            method="post">
-    <div class="container">
+    <%--<div class="container">
         <ul class="nav nav-pills">
             <li><a href="showcounts.action">Show Counts</a></li>
             <c:if test="${currentUser.systemRole == 'ADMIN'}">
@@ -300,16 +307,17 @@
             <li><a href="reportpage.action">Report</a></li>
             <li><a href="logout.action">Logout</a></li>
         </ul>
-    </div>
+    </div>--%>
     <div class="mainWrapper">
-            <%-- <div style="float:right;font-weight:bold"><a style="text-align: right" href="${pageContext.request.contextPath}/email.action"><h5 style="font-weight:bold">Manage
-                 My Registration</h5></a></div>--%>
+        <div style="float:right;font-weight:bold"></div>
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-xs-12 col-sm-12">
-                <h3 class="defaultBold">Retreat Registration Form</h3>
+                <h3 class="defaultBold">Seminar Registration Form</h3>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading headerColor">Parent/Guardian Details</div>
+                    <div class="panel-heading headerColor">Parent/Guardian Details<a style="float: right;color: #ddd"
+                                                                                     href="${pageContext.request.contextPath}/email.action">
+                        Manage My Registration</a></div>
                     <div class="panel-body">
                         <div class="row generalFormLayout">
                             <div class="col-md-4">
@@ -457,53 +465,39 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="studentNodeList[0].classDivision">Age Range:<span
+                                    <label for="studentNodeList[0].massCentre">Mass Centre:<span
                                             style="color: red">*</span></label>
-                                    <form:select class="form-control" path="studentNodeList[0].classDivision"
-                                                 id="classDivision0" onchange="callSectionUpdate($(this).attr('id'))">
+                                    <form:select class="form-control" path="studentNodeList[0].massCentre"
+                                                 id="massCentre0" onchange="callSectionUpdate($(this).attr('id'))">
                                         <form:option value="0">--Select--</form:option>
-                                        <form:option value="8-12">8 - 12</form:option>
-                                        <form:option value="13-17">13 - 17</form:option>
-                                        <form:option value="18+">18+</form:option>
+                                        <form:option value="Tallaght">Tallaght</form:option>
+                                        <form:option value="Bray">Bray</form:option>
+                                        <form:option value="St.Joseph's">St.Joseph's</form:option>
+                                        <form:option value="Inchicore">Inchicore</form:option>
+                                        <form:option value="Blanchardstown">Blanchardstown</form:option>
+                                        <form:option value="Lucan">Lucan</form:option>
+                                        <form:option value="Phibsboro">Phibsboro</form:option>
+                                        <form:option value="Beaumont">Beaumont</form:option>
+                                        <form:option value="Swords">Swords</form:option>
                                     </form:select>
                                 </div>
 
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="studentNodeList[0].retreatSection">Section:<span
+                                    <label for="studentNodeList[0].venue">Venue:<span
                                             style="color: red">*</span></label>
-                                    <form:input class="form-control" path="studentNodeList[0].retreatSection"
-                                                id="retreatSection0" readonly="true"/>
+                                    <form:input class="form-control" path="studentNodeList[0].venue"
+                                                id="venue0" readonly="true"/>
                                 </div>
 
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <div class="col-md-3 text-center">
-                                        <label>Oct-29</label><br/>
-                                        <form:checkbox path="studentNodeList[0].dayOne"
-                                                       id="dayOne0" value="Oct-29"/>
+                                    <label>Date<span style="color: red">*</span></label>
+                                    <form:input class="form-control" path="studentNodeList[0].day"
+                                                id="day" readonly="true"/>
 
-                                    </div>
-                                    <div class="col-md-3 text-center">
-                                        <label>Oct-30</label><br/>
-                                        <form:checkbox path="studentNodeList[0].dayTwo"
-                                                       id="dayTwo0" value="Oct-30"/>
-
-                                    </div>
-                                    <div class="col-md-3 text-center">
-                                        <label>Oct-31</label><br/>
-                                        <form:checkbox path="studentNodeList[0].dayThree"
-                                                       id="dayThree0" value="Oct-31"/>
-
-                                    </div>
-                                    <div class="col-md-3 text-center" style="display: none;">
-                                        <label>Nov-1</label><br/>
-                                        <form:checkbox path="studentNodeList[0].dayFour"
-                                                       id="dayFour0" value="Nov-1"/>
-
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-1 hidden">
@@ -535,11 +529,8 @@
                             Children’s leaders are aware of any medical, learning issues associated with your
                             son/daughter so that we can give them a positive and engaging experience.<br>
 
-                            <i><b>Event/Activity:</b> Christeen Retreat from October 29 to 1st November 2016 from 9.30
-                                AM to
-                                5.30 PM<br>
-                                <b>Venue:</b> Phibblestown Community Centre, Clonee, Blanchardstown, Dublin
-                                -15.</i><br>
+                            <i><b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29 2016 from 9.30 AM to 4.00 PM<br>
+                                <b>Venue:</b> Tallaght, Inchicore and Phibsboro</i><br>
                             1. I have read all the information provided concerning the programme of the above
                             activity.<br>
                             2. I hereby give permission for my son/daughter/ward to participate in the above

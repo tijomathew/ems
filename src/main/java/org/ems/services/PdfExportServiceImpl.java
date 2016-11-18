@@ -89,7 +89,7 @@ public class PdfExportServiceImpl implements PdfExportService {
             if (rowSpan > 0) {
                 for (StudentNode studentNode : parentNode.getStudentNodeList()) {
                     addCellContentToPDFTable(studentNode.getFullName(), fontNormal, Element.ALIGN_LEFT);
-                    addCellContentToPDFTable(studentNode.getRetreatSection(), fontNormal, Element.ALIGN_LEFT);
+                    addCellContentToPDFTable(studentNode.getMassCentre(), fontNormal, Element.ALIGN_LEFT);
                     addCellContentToPDFTable(studentNode.getBandCode(), fontNormal, Element.ALIGN_LEFT);
                     addCellContentToPDFTable(studentNode.getAllRegisteredDays(), fontNormal, Element.ALIGN_LEFT);
                     addCellContentToPDFTable(studentNode.getInTimes(date), fontNormal, Element.ALIGN_LEFT);

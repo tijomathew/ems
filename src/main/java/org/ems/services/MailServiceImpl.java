@@ -44,7 +44,7 @@ public class MailServiceImpl implements MailService {
                 Map<String, ParentNode> model = new HashMap<>();
                 model.put("registeredParentNode", registeredParentNode);
 
-                message.setSubject("Syro Malabar Church Ireland Retreat Registration");
+                message.setSubject("Syro Malabar Church Ireland Seminar Registration");
                 mergedContent = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, EMAIL_REGISTRATION_TEMPLATE, model);
                 message.setText(mergedContent, true);
 

@@ -24,7 +24,8 @@
 <%@ include file="headerTemplate.jsp" %>
 <p class="alert alert-info fade in text-center" style="margin-top:30px;">
     <strong>An E-mail entered is not registered with our system. Please enter the registered Email-ID</strong><br>
-    <a href="email.action"> Go Back</a>
+    <a href="email.action"> Go Back</a><br>
+    <a href="registration.action"> Go Back To Registration</a>
 </p>
 <%@include file="footer.jsp" %>
 </body>
