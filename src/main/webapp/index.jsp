@@ -16,7 +16,7 @@
             language="javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            window.location.replace('login.action');
+            window.location.replace('registration.action');
         });
     </script>
 </head>
