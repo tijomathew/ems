@@ -73,6 +73,9 @@ public class ParentNode implements Serializable {
     @Column(name = "registered_ip")
     private String ip;
 
+    @Column(name = "special_counseling")
+    private Boolean specialCounsellingRequired;
+
     private transient String confirmEmail;
 
     private transient String childFirstName;
@@ -226,6 +229,14 @@ public class ParentNode implements Serializable {
 
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    public Boolean getSpecialCounsellingRequired() {
+        return specialCounsellingRequired;
+    }
+
+    public void setSpecialCounsellingRequired(Boolean specialCounsellingRequired) {
+        this.specialCounsellingRequired = specialCounsellingRequired;
     }
 
     public String getConfirmEmail() {

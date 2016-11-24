@@ -268,13 +268,13 @@
                     case "Inchicore":
                     case "Blanchardstown":
                     case "Lucan":
-                        $('#' + sectionId).val("Inchicore");
+                        $('#' + sectionId).val("Lucan");
                         $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("28-12-2016");
                         break;
                     case "Phibsboro":
                     case "Beaumont":
                     case "Swords":
-                        $('#' + sectionId).val("Phibsboro");
+                        $('#' + sectionId).val("Beaumont");
                         $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("29-12-2016");
                         break;
 
@@ -529,8 +529,9 @@
                             Children’s leaders are aware of any medical, learning issues associated with your
                             son/daughter so that we can give them a positive and engaging experience.<br>
 
-                            <i><b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29 2016 from 9.30 AM to 4.00 PM<br>
-                                <b>Venue:</b> Tallaght, Inchicore and Phibsboro</i><br>
+                            <i><b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29, 2016 from
+                                9.30 AM to 4.00 PM<br>
+                                <b>Venue:</b> Tallaght, Lucan and Beaumont</i><br>
                             1. I have read all the information provided concerning the programme of the above
                             activity.<br>
                             2. I hereby give permission for my son/daughter/ward to participate in the above
@@ -555,6 +556,13 @@
                                     <div><form:textarea path="medicalInformation" id="medicalInformation"
                                                         style="display:none" class="form-control"
                                                         placeholder="Please enter details here..."></form:textarea></div>
+                                </div>
+                                <div class="panel-body">If you require an appointment for a special guidance session
+                                    with Ms. Grace Lal for improving your child’s holistic growth/healthy family
+                                    development, please tick this box.&nbsp;&nbsp;<form:checkbox
+                                            path="specialCounsellingRequired"
+                                            style="width:15px;height:15px;"
+                                            id="specialCounselingChecked"/>
                                 </div>
                             </div>
                         </div>

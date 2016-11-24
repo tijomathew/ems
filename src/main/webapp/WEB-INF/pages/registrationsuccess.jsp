@@ -35,6 +35,10 @@
         <div class="col-xs-12 col-sm-12"></div>
         <h3 class="defaultBold" style="color: #40a297 !important;">Success</h3>
 
+        <div class="alert alert-info">
+            <strong>Please note that an authorized person from Syro Malabar Church will contact you to collect the registration fee of €50 Only.</strong>
+        </div>
+
         <div class="alert alert-success fade in">
             You have successfully registered and given consent to below given childs for attending Blaze-Grace Lal
             Seminar!!!<br><strong>Your family ID is: ${sessionScope.parentNodeEntry.id}</strong> <br>Child IDs are
@@ -80,12 +84,12 @@
             </p>
 
             <p>
-                <i> <b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29 2016 from 9.30 AM to
+                <i> <b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29, 2016 from 9.30 AM to
                     4.00 PM</i>
             </p>
 
             <p>
-                <i><b>Venue:</b>Tallaght, Inchicore and Phibsboro</i>
+                <i><b>Venue:</b>Tallaght, Lucan and Beaumont</i>
             </p>
 
             <p>
