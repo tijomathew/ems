@@ -457,8 +457,11 @@
 
                 <div class="panel panel-default" id="studentInfo">
                     <div class="panel-heading headerColor">Child Details</div>
-
-
+                    <div class="alert alert-success alert-dismissable">
+                        <ul><li>Open to  Youth above 13 years of age and their parents.</li>
+                            <li>Arrangements for engaging the younger children (7-13 years) is available at all three venues. </li>
+                            <li>Children 0-6 Years can sit with their parents.</li></ul>
+                    </div>
                     <div class="panel-body" id="studentInfoTemplate">
 
                         <div class="row generalFormLayout">
