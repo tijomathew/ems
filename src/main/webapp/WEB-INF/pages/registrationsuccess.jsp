@@ -36,7 +36,7 @@
         <h3 class="defaultBold" style="color: #40a297 !important;">Success</h3>
 
         <div class="alert alert-info">
-            <strong>Please note that an authorized person from Syro Malabar Church will contact you to collect the registration fee of €50 Only.</strong>
+            <strong>Please note that an authorized person from Syro Malabar Church will contact you to collect the registration fee of €50 Only per family.</strong>
         </div>
 
         <div class="alert alert-success fade in">
