@@ -262,6 +262,7 @@
                     case "Tallaght":
                     case "Bray":
                     case "St.Josephs":
+                    case "Other":
                         $('#' + sectionId).val("Tallaght");
                         $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("27-12-2016");
                         break;
@@ -479,6 +480,7 @@
                                         <form:option value="Phibsboro">Phibsboro</form:option>
                                         <form:option value="Beaumont">Beaumont</form:option>
                                         <form:option value="Swords">Swords</form:option>
+                                        <form:option value="Other">Other</form:option>
                                     </form:select>
                                 </div>
 
@@ -531,7 +533,9 @@
 
                             <i><b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29, 2016 from
                                 9.30 AM to 4.00 PM<br>
-                                <b>Venue:</b> Tallaght, Lucan and Beaumont</i><br>
+                                <b>Venue:</b> Beaumont: St.Fiachra's National School, Montrose Park, Beaumont, Dublin 5<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tallaght: Church of the Incarnation of Fettercairn, St.Marks parish, Belgard, Fettercairn, Springfield, Tallaght, Dublin-24<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lucan: St.John the Evangelist National School, Adamstown, Lucan, Co. Dublin.</i><br>
                             1. I have read all the information provided concerning the programme of the above
                             activity.<br>
                             2. I hereby give permission for my son/daughter/ward to participate in the above

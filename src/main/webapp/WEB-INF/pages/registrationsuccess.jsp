@@ -89,7 +89,9 @@
             </p>
 
             <p>
-                <i><b>Venue:</b>Tallaght, Lucan and Beaumont</i>
+                <i><b>Venue:</b>Beaumont: St.Fiachra's National School, Montrose Park, Beaumont, Dublin 5<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tallaght: Church of the Incarnation of Fettercairn, St.Marks parish, Belgard, Fettercairn, Springfield, Tallaght, Dublin-24<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lucan: St.John the Evangelist National School, Adamstown, Lucan, Co. Dublin.</i>
             </p>
 
             <p>
