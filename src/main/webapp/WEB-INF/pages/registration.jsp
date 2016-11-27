@@ -466,7 +466,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="studentNodeList[0].massCentre">Mass Centre:<span
+                                    <label for="studentNodeList[0].massCentre">Mass Centre For Venue:<span
                                             style="color: red">*</span></label>
                                     <form:select class="form-control" path="studentNodeList[0].massCentre"
                                                  id="massCentre0" onchange="callSectionUpdate($(this).attr('id'))">
@@ -534,8 +534,8 @@
                             <i><b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29, 2016 from
                                 9.30 AM to 4.00 PM<br>
                                 <b>Venue:</b> Beaumont: St.Fiachra's National School, Montrose Park, Beaumont, Dublin 5<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tallaght: Church of the Incarnation of Fettercairn, St.Marks parish, Belgard, Fettercairn, Springfield, Tallaght, Dublin-24<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lucan: St.John the Evangelist National School, Adamstown, Lucan, Co. Dublin.</i><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lucan: St.John the Evangelist National School, Adamstown, Lucan, Co. Dublin.<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tallaght: Church of the Incarnation of Fettercairn, St.Marks parish, Belgard, Fettercairn, Springfield, Tallaght, Dublin-24</i><br>
                             1. I have read all the information provided concerning the programme of the above
                             activity.<br>
                             2. I hereby give permission for my son/daughter/ward to participate in the above
