@@ -21,7 +21,7 @@
     <script type="text/javascript">
         jQuery(document).ready(function () {
             $('#finishButton').click(function () {
-                window.location.href = "registration.action";
+                window.location.href = "http://syromalabar.ie/";
             });
         });
     </script>
@@ -36,7 +36,8 @@
         <h3 class="defaultBold" style="color: #40a297 !important;">Success</h3>
 
         <div class="alert alert-info">
-            <strong>Please note that an authorized person from Syro Malabar Church will contact you to collect the registration fee of €50 Only per family.</strong>
+            <strong>Please note that an authorized person from Syro Malabar Church will contact you to collect the
+                registration fee of €50 only per family.</strong>
         </div>
 
         <div class="alert alert-success fade in">
@@ -51,9 +52,7 @@
                 <tr>
                     <th>Child ID</th>
                     <th>Name</th>
-                    <th>Mass centre</th>
-                    <th>Venue</th>
-                    <th>Day</th>
+                    <th>Age Range</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -61,9 +60,7 @@
                     <tr>
                         <td>${studentNodeEntry.bandCode}</td>
                         <td>${studentNodeEntry.firstName} ${studentNodeEntry.lastName} </td>
-                        <td>${studentNodeEntry.massCentre}</td>
-                        <td>${studentNodeEntry.venue}</td>
-                        <td>${studentNodeEntry.day}</td>
+                        <td>${studentNodeEntry.ageRange}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -84,14 +81,10 @@
             </p>
 
             <p>
-                <i> <b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29, 2016 from 9.30 AM to
-                    4.00 PM</i>
-            </p>
-
-            <p>
-                <i><b>Venue:</b>Beaumont: St.Fiachra's National School, Montrose Park, Beaumont, Dublin 5<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lucan: St.John the Evangelist National School, Adamstown, Lucan, Co. Dublin.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tallaght: Church of the Incarnation of Fettercairn, St.Marks parish, Belgard, Fettercairn, Springfield, Tallaght, Dublin-24</i>
+                <i><b>Event/Activity:</b> Blaze-Grace Lal Seminar<br>
+                    <b>Date:</b> ${sessionScope.parentNodeEntry.day}</i><br>
+                <b>Time:</b> 9.30 AM to 4.00 PM</i><br>
+                <b>Venue:</b> ${sessionScope.parentNodeEntry.venue} ${sessionScope.parentNodeEntry.venueAddress}</i><br>
             </p>
 
             <p>

@@ -29,17 +29,11 @@ public class StudentNode implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "mass_centre")
-    private String massCentre;
-
-    @Column(name = "venue")
-    private String venue;
-
-    @Column(name = "day")
-    private String day = StringUtils.EMPTY;
-
     @Column(name = "band_code")
     private String bandCode;
+
+    @Column(name = "age_range")
+    private String ageRange;
 
     @ManyToOne(targetEntity = ParentNode.class)
     @JoinColumn(name = "parent_student_id", referencedColumnName = "id")
@@ -84,36 +78,20 @@ public class StudentNode implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getMassCentre() {
-        return massCentre;
-    }
-
-    public void setMassCentre(String classDivision) {
-        this.massCentre = classDivision;
-    }
-
-    public String getVenue() {
-        return venue;
-    }
-
-    public void setVenue(String venue) {
-        this.venue = venue;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-
     public String getBandCode() {
         return bandCode;
     }
 
     public void setBandCode(String bandCode) {
         this.bandCode = bandCode;
+    }
+
+    public String getAgeRange() {
+        return ageRange;
+    }
+
+    public void setAgeRange(String ageRange) {
+        this.ageRange = ageRange;
     }
 
     public ParentNode getParentNode() {
@@ -232,10 +210,6 @@ public class StudentNode implements Serializable {
 
     public void addInOutInformer(InOutInformer inOutInformer) {
         this.inOutInformerList.add(inOutInformer);
-    }
-
-    public String getAllRegisteredDays() {
-        return day;
     }
 
     private String getDateAsString() {

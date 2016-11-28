@@ -5,7 +5,7 @@
     background-color: #d9edf7;
     border-color: #bce8f1">
     <strong>Please note that an authorized person from Syro Malabar Church will contact you to collect the registration
-        fee of €50 Only per family.</strong>
+        fee of €50 only per family.</strong>
 </div>
 <div style="padding: 10px;
     margin-bottom: 20px;
@@ -57,9 +57,7 @@
         <tr>
             <th>Child ID&nbsp;&nbsp;&nbsp;&nbsp;</th>
             <th>Name&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Mass Centre&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Venue&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Day</th>
+            <th>Age Range&nbsp;&nbsp;&nbsp;&nbsp;</th>
         </tr>
         </thead>
         <tbody>
@@ -67,9 +65,7 @@
             <tr>
                 <td>${studentNodeEntry.bandCode}</td>
                 <td>${studentNodeEntry.firstName} ${studentNodeEntry.lastName} </td>
-                <td>${studentNodeEntry.massCentre}</td>
-                <td>${studentNodeEntry.venue}</td>
-                <td>${studentNodeEntry.day}</td>
+                <td>${studentNodeEntry.ageRange}</td>
             </tr>
             #end
         </tbody>
@@ -90,15 +86,15 @@
     </p>
 
     <p>
-        <i> <b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29, 2016 from 9.30 AM to
-            4.00 PM</i>
+        <i> <b>Event/Activity:</b> Blaze-Grace Lal Seminar </i>
     </p>
 
-    <p>
-        <i><b>Venue:</b>Beaumont: St.Fiachra's National School, Montrose Park, Beaumont, Dublin 5<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lucan: St.John the Evangelist National School, Adamstown, Lucan, Co. Dublin.<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tallaght: Church of the Incarnation of Fettercairn, St.Marks parish, Belgard, Fettercairn, Springfield, Tallaght, Dublin-24</i>
+    <p><i> <b>Date:</b> ${registeredParentNode.day}</i>
     </p>
+
+    <p><i><b>Time:</b> 9.30 AM to 4.00 PM</i></p>
+
+    <p><b>Venue:</b> <i>${registeredParentNode.venue} ${registeredParentNode.venueAddress}</i></p>
 
     <p>
         1. I have read all the information provided concerning the programme of the above

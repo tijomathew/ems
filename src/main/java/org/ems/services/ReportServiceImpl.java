@@ -28,9 +28,9 @@ public class ReportServiceImpl implements ReportService {
         if (!category.equals("all")) {
             for (ParentNode parentNode : parentNodeList) {
                 for (Iterator<StudentNode> itr = parentNode.getStudentNodeList().listIterator(); itr.hasNext(); ) {
-                    if (!itr.next().getMassCentre().equals(category)) {
+                    /*if (!itr.next().getMassCentre().equals(category)) {
                         itr.remove();
-                    }
+                    }*/
                 }
             }
         }

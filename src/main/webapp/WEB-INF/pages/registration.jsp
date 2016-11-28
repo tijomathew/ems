@@ -131,6 +131,21 @@
                     alertMessage = 'Please correct errors in the red highlighted fields and save again';
                     $("#addressLineTwo").addClass('borderColor');
                 }
+                if ($("#venueMassCentreName").val() == "") {
+                    submitFlag = false;
+                    alertMessage = 'Please correct errors in the red highlighted fields and save again';
+                    $("#venueMassCentreName").addClass('borderColor');
+                }
+                if ($("#venue").val() == "") {
+                    submitFlag = false;
+                    alertMessage = 'Please correct errors in the red highlighted fields and save again';
+                    $("#venue").addClass('borderColor');
+                }
+                if ($("#day").val() == "") {
+                    submitFlag = false;
+                    alertMessage = 'Please correct errors in the red highlighted fields and save again';
+                    $("#day").addClass('borderColor');
+                }
 
                 if ($("#phoneNumber").val() != "" && $("#alternativePhoneNumber").val() != "") {
                     if ($("#phoneNumber").val() == $("#alternativePhoneNumber").val()) {
@@ -236,9 +251,7 @@
                         .find('[name="studentNodeList[0].id"]').val('').attr('name', 'studentNodeList[' + i + '].id').attr('id', 'id' + i).end()
                         .find('[name="studentNodeList[0].firstName"]').val('').attr('name', 'studentNodeList[' + i + '].firstName').attr('id', 'firstName' + i).end()
                         .find('[name="studentNodeList[0].lastName"]').val('').attr('name', 'studentNodeList[' + i + '].lastName').attr('id', 'lastName' + i).end()
-                        .find('[name="studentNodeList[0].massCentre"]').attr('name', 'studentNodeList[' + i + '].massCentre').attr('id', 'massCentre' + i).end()
-                        .find('[name="studentNodeList[0].venue"]').val('').attr('name', 'studentNodeList[' + i + '].venue').attr('id', 'venue' + i).end()
-                        .find('[name="studentNodeList[0].day"]').val('').attr('name', 'studentNodeList[' + i + '].day').attr('id', 'day' + i).end()
+                        .find('[name="studentNodeList[0].ageRange"]').attr('name', 'studentNodeList[' + i + '].ageRange').attr('id', 'ageRange' + i).end()
                         .find("button.deleteChildRow").closest("div.hidden").removeClass("hidden").end()
                 // .find('[name = actionButton]').removeAttr('class').attr('class', 'btn btn-primary removeButton commonGreenBtn').text("Remove Child").find('.fa-plus').removeAttr('class').attr('class', 'fa fa-minus');
 
@@ -248,38 +261,46 @@
 
         }
 
-        function callSectionUpdate(elementId) {
+        function callSectionUpdate() {
 
-            if (elementId != null) {
+            var selectedMassCentreVenue = $('#venueMassCentreName').val();
 
-                var selectedClass = $('#' + elementId).val();
-                var sectionId = $('#' + elementId).closest('div.panel-body').find("input[id ^= venue]").attr("id");
-                switch (selectedClass) {
-                    case "0":
-                        $('#' + sectionId).val('');
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val('');
-                        break;
-                    case "Tallaght":
-                    case "Bray":
-                    case "St.Josephs":
-                    case "Other":
-                        $('#' + sectionId).val("Tallaght");
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("27-12-2016");
-                        break;
-                    case "Inchicore":
-                    case "Blanchardstown":
-                    case "Lucan":
-                        $('#' + sectionId).val("Lucan");
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("28-12-2016");
-                        break;
-                    case "Phibsboro":
-                    case "Beaumont":
-                    case "Swords":
-                        $('#' + sectionId).val("Beaumont");
-                        $('#' + sectionId).closest('div.panel-body').find("input[id ^= day]").val("29-12-2016");
-                        break;
-
-                }
+            switch (selectedMassCentreVenue) {
+                case "0":
+                    $('#venue').val('');
+                    $('#day').val('');
+                    $('#venueAddress').val('');
+                    $('#dateInConsentForm').text('');
+                    $('#venueInConsentForm').text('');
+                    break;
+                case "Tallaght":
+                case "Bray":
+                case "StJosephs":
+                case "Other":
+                    $('#venue').val("Tallaght");
+                    $('#day').val("27-12-2016");
+                    $('#venueAddress').val("Church of the Incarnation of Fettercairn, St.Marks parish, Belgard, Fettercairn, Springfield, Tallaght, Dublin-24");
+                    $('#dateInConsentForm').text("December 27 of 2016");
+                    $('#venueInConsentForm').text("Tallaght: Church of the Incarnation of Fettercairn, St.Marks parish, Belgard, Fettercairn, Springfield, Tallaght, Dublin-24");
+                    break;
+                case "Inchicore":
+                case "Blanchardstown":
+                case "Lucan":
+                    $('#venue').val("Lucan");
+                    $('#day').val("28-12-2016");
+                    $('#venueAddress').val("St.John the Evangelist National School, Adamstown, Lucan, Co. Dublin.");
+                    $('#dateInConsentForm').text("December 28 of 2016");
+                    $('#venueInConsentForm').text("Lucan: St.John the Evangelist National School, Adamstown, Lucan, Co. Dublin.");
+                    break;
+                case "Phibsboro":
+                case "Beaumont":
+                case "Swords":
+                    $('#venue').val("Beaumont");
+                    $('#day').val("29-12-2016");
+                    $('#venueAddress').val("St.Fiachra's National School, Montrose Park, Beaumont, Dublin 5");
+                    $('#dateInConsentForm').text("December 29 of 2016");
+                    $('#venueInConsentForm').text("Beaumont: St.Fiachra's National School, Montrose Park, Beaumont, Dublin 5");
+                    break;
 
             }
 
@@ -442,12 +463,81 @@
                 </div>
 
 
+                <div class="panel panel-default" id="venuInfo">
+                    <div class="panel-heading headerColor">Venue Details</div>
+                    <div class="alert alert-success alert-dismissable">
+                        <ul>
+                            <li>You can take part in any venue for the seminar, based on your availability, irrespective
+                                of your Mass Centre.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-body" id="venueInfoTemplate">
+                        <div class="row generalFormLayout">
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="venueMassCentreName">Mass Centre Venue:<span
+                                            style="color: red">*</span></label>
+                                    <form:select class="form-control" path="venueMassCentreName"
+                                                 id="venueMassCentreName" onchange="callSectionUpdate()">
+                                        <form:option value="0">--Select--</form:option>
+                                        <form:option value="Tallaght">Tallaght</form:option>
+                                        <form:option value="Bray">Bray</form:option>
+                                        <form:option value="StJosephs">St.Joseph's</form:option>
+                                        <form:option value="Inchicore">Inchicore</form:option>
+                                        <form:option value="Blanchardstown">Blanchardstown</form:option>
+                                        <form:option value="Lucan">Lucan</form:option>
+                                        <form:option value="Phibsboro">Phibsboro</form:option>
+                                        <form:option value="Beaumont">Beaumont</form:option>
+                                        <form:option value="Swords">Swords</form:option>
+                                        <form:option value="Other">Other</form:option>
+                                    </form:select>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="venue">Venue:<span
+                                            style="color: red">*</span></label>
+                                    <form:input class="form-control" path="venue"
+                                                id="venue" readonly="true"/>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Date<span style="color: red">*</span></label>
+                                    <form:input class="form-control" path="day"
+                                                id="day" readonly="true"/>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Venue Address<span style="color: red">*</span></label>
+                                    <form:textarea class="form-control" path="venueAddress"
+                                                   id="venueAddress" readonly="true"/>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
                 <div class="panel panel-default" id="studentInfo">
                     <div class="panel-heading headerColor">Child Details</div>
                     <div class="alert alert-success alert-dismissable">
-                        <ul><li>Open to  Youth above 13 years of age and their parents.</li>
-                        <li>Arrangements for engaging the younger children (7-13 years) is available at all three venues. </li>
-                        <li>Children 0-6 Years can sit with their parents.</li></ul>
+                        <ul>
+                            <li>Open to Youth above 13 years of age and their parents.</li>
+                            <li>Arrangements for engaging the younger children (7-13 years) is available at all three
+                                venues.
+                            </li>
+                            <li>Children 0-6 Years can sit with their parents.</li>
+                            <li>Add every child’s details who will be present either with parents or in the group</li>
+                        </ul>
                     </div>
                     <div class="panel-body" id="studentInfoTemplate">
 
@@ -469,44 +559,23 @@
                                 </div>
 
                             </div>
+
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="studentNodeList[0].massCentre">Mass Centre For Venue:<span
+                                    <label for="studentNodeList[0].ageRange">Age Range:<span
                                             style="color: red">*</span></label>
-                                    <form:select class="form-control" path="studentNodeList[0].massCentre"
-                                                 id="massCentre0" onchange="callSectionUpdate($(this).attr('id'))">
+                                    <form:select class="form-control" path="studentNodeList[0].ageRange"
+                                                 id="ageRange0">
                                         <form:option value="0">--Select--</form:option>
-                                        <form:option value="Tallaght">Tallaght</form:option>
-                                        <form:option value="Bray">Bray</form:option>
-                                        <form:option value="St.Joseph's">St.Joseph's</form:option>
-                                        <form:option value="Inchicore">Inchicore</form:option>
-                                        <form:option value="Blanchardstown">Blanchardstown</form:option>
-                                        <form:option value="Lucan">Lucan</form:option>
-                                        <form:option value="Phibsboro">Phibsboro</form:option>
-                                        <form:option value="Beaumont">Beaumont</form:option>
-                                        <form:option value="Swords">Swords</form:option>
-                                        <form:option value="Other">Other</form:option>
+                                        <form:option value="13 and above">13 and above</form:option>
+                                        <form:option value="7 and < 13">7 and < 13</form:option>
+                                        <form:option value="4 and < 7">4 and < 7</form:option>
+                                        <form:option value="0 and < 4">0 and < 4</form:option>
                                     </form:select>
                                 </div>
 
                             </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="studentNodeList[0].venue">Venue:<span
-                                            style="color: red">*</span></label>
-                                    <form:input class="form-control" path="studentNodeList[0].venue"
-                                                id="venue0" readonly="true"/>
-                                </div>
 
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>Date<span style="color: red">*</span></label>
-                                    <form:input class="form-control" path="studentNodeList[0].day"
-                                                id="day" readonly="true"/>
-
-                                </div>
-                            </div>
                             <div class="col-md-1 hidden">
                                 <div class="form-group vcenter">
                                     <label>Delete</label>
@@ -536,11 +605,10 @@
                             Children’s leaders are aware of any medical, learning issues associated with your
                             son/daughter so that we can give them a positive and engaging experience.<br>
 
-                            <i><b>Event/Activity:</b> Blaze-Grace Lal Seminar from December 27, 28 and 29, 2016 from
-                                9.30 AM to 4.00 PM<br>
-                                <b>Venue:</b> Beaumont: St.Fiachra's National School, Montrose Park, Beaumont, Dublin 5<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lucan: St.John the Evangelist National School, Adamstown, Lucan, Co. Dublin.<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tallaght: Church of the Incarnation of Fettercairn, St.Marks parish, Belgard, Fettercairn, Springfield, Tallaght, Dublin-24</i><br>
+                            <i><b>Event/Activity:</b> Blaze-Grace Lal Seminar<br>
+                                <b>Date:</b> <span id="dateInConsentForm"></span></i><br>
+                            <b>Time:</b> 9.30 AM to 4.00 PM</i><br>
+                            <b>Venue:</b> <span id="venueInConsentForm"></span></i><br>
                             1. I have read all the information provided concerning the programme of the above
                             activity.<br>
                             2. I hereby give permission for my son/daughter/ward to participate in the above

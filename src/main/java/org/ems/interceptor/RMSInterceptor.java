@@ -35,7 +35,7 @@ public class RMSInterceptor implements HandlerInterceptor {
         }
         if (!indicatorToProceed) {
             if (urlAction.equalsIgnoreCase("registration.action") || urlAction.equalsIgnoreCase("createregistration.action") || urlAction.equalsIgnoreCase("email.action") || urlAction.equalsIgnoreCase("getEmail.action")
-                    ||urlAction.equalsIgnoreCase("getRegisteredFamilyDetails.action")||urlAction.equalsIgnoreCase("wrongpassword.action")) {
+                    ||urlAction.equalsIgnoreCase("getRegisteredFamilyDetails.action")||urlAction.equalsIgnoreCase("wrongpassword.action")||urlAction.equalsIgnoreCase("editregistration.action")) {
                 indicatorToProceed = true;
             } else {
                 User userFromCurrentSession = requestResponseHolder.getAttributeFromSession(SystemRole.RMS_CURRENT_USER.toString(), User.class);

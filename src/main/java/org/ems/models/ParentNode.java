@@ -1,5 +1,6 @@
 package org.ems.models;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.*;
 
 import javax.persistence.*;
@@ -75,6 +76,18 @@ public class ParentNode implements Serializable {
 
     @Column(name = "special_counseling")
     private Boolean specialCounsellingRequired;
+
+    @Column(name = "mass_centre")
+    private String venueMassCentreName;
+
+    @Column(name = "venue")
+    private String venue;
+
+    @Column(name = "day")
+    private String day = StringUtils.EMPTY;
+
+    @Column(name = "venue_address")
+    private String venueAddress;
 
     private transient String confirmEmail;
 
@@ -237,6 +250,38 @@ public class ParentNode implements Serializable {
 
     public void setSpecialCounsellingRequired(Boolean specialCounsellingRequired) {
         this.specialCounsellingRequired = specialCounsellingRequired;
+    }
+
+    public String getVenueMassCentreName() {
+        return venueMassCentreName;
+    }
+
+    public void setVenueMassCentreName(String venueMassCentreName) {
+        this.venueMassCentreName = venueMassCentreName;
+    }
+
+    public String getVenue() {
+        return venue;
+    }
+
+    public void setVenue(String venue) {
+        this.venue = venue;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getVenueAddress() {
+        return venueAddress;
+    }
+
+    public void setVenueAddress(String venueAddress) {
+        this.venueAddress = venueAddress;
     }
 
     public String getConfirmEmail() {
