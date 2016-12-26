@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface ChildDao {
 
-    Long getAllRegisteredPeople(String property, String inOutFlag);
+    Long getAllRegisteredPeople(String property, String inOutFlag, String ageRange);
 
     List<StudentNode> getChildDetails(Long parentId);
 

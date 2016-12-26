@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface ChildService {
 
-    Long getAllRegisteredPeople(String property, String inOutFlag);
+    Long getAllRegisteredPeople(String property, String inOutFlag, String ageRange);
 
     ChartResultContainer getChartResultContainer(String tqx, String inOutFlag);
 

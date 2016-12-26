@@ -28,12 +28,12 @@ public class ChildServiceImpl implements ChildService {
     }
 
     @Override
-    public Long getAllRegisteredPeople(String registeredDate, String inOutFlag) {
+    public Long getAllRegisteredPeople(String registeredDate, String inOutFlag, String ageRange) {
         if (registeredDate == null) {
             throw new IllegalArgumentException("registeredDate cannot be null!!..");
         }
 
-        return childDao.getAllRegisteredPeople(registeredDate, inOutFlag);
+        return childDao.getAllRegisteredPeople(registeredDate, inOutFlag, ageRange);
     }
 
     @Override
@@ -58,10 +58,18 @@ public class ChildServiceImpl implements ChildService {
         if (chartColList.isEmpty()) {
 
             ChartCol chartColOne = new ChartCol("date", "Date", "date", "string");
-            ChartCol chartColTwo = new ChartCol("people", "People", "people", "number");
+            ChartCol chartColTwo = new ChartCol("0 and < 4", "0 and < 4", "0 and < 4", "number");
+            ChartCol chartColThree = new ChartCol("4 and < 7", "4 and < 7", "4 and < 7", "number");
+            ChartCol chartColFour = new ChartCol("7 and < 13", "7 and < 13", "7 and < 13", "number");
+            ChartCol chartColFive = new ChartCol("13 and above", "13 and above", "13 and above", "number");
+            ChartCol chartColSix = new ChartCol("total", "Total", "total", "number");
 
             chartColList.add(chartColOne);
             chartColList.add(chartColTwo);
+            chartColList.add(chartColThree);
+            chartColList.add(chartColFour);
+            chartColList.add(chartColFive);
+            chartColList.add(chartColSix);
         }
         return chartColList;
     }
@@ -77,10 +85,21 @@ public class ChildServiceImpl implements ChildService {
             List<ChartCell> chartCellList = new ArrayList<>();
 
             ChartCell<String> chartCellDate = new ChartCell<>(date[i], date[i]);
-            ChartCell<Long> chartCellAllPeopleCount = new ChartCell<>(getAllRegisteredPeople(registeredDates[i], inOutFlag), getAllRegisteredPeople(registeredDates[i], inOutFlag).toString());
+            ChartCell<Long> chartCell0to4Count = new ChartCell<>(getAllRegisteredPeople(registeredDates[i], inOutFlag, "0 and < 4"), getAllRegisteredPeople(registeredDates[i], inOutFlag, "0 and < 4").toString());
+            ChartCell<Long> chartCell4to7Count = new ChartCell<>(getAllRegisteredPeople(registeredDates[i], inOutFlag, "4 and < 7"), getAllRegisteredPeople(registeredDates[i], inOutFlag, "4 and < 7").toString());
+            ChartCell<Long> chartCell7to13Count = new ChartCell<>(getAllRegisteredPeople(registeredDates[i], inOutFlag, "7 and < 13"), getAllRegisteredPeople(registeredDates[i], inOutFlag, "7 and < 13").toString());
+            ChartCell<Long> chartCellGreater13Count = new ChartCell<>(getAllRegisteredPeople(registeredDates[i], inOutFlag, "13 and above"), getAllRegisteredPeople(registeredDates[i], inOutFlag, "13 and above").toString());
+
+            Long totalCountByRowWise = getAllRegisteredPeople(registeredDates[i], inOutFlag, "0 and < 4") + getAllRegisteredPeople(registeredDates[i], inOutFlag, "4 and < 7") + getAllRegisteredPeople(registeredDates[i], inOutFlag, "7 and < 13") + getAllRegisteredPeople(registeredDates[i], inOutFlag, "13 and above");
+
+            ChartCell<Long> chartCellTotalCount = new ChartCell<>(totalCountByRowWise, totalCountByRowWise.toString());
 
             chartCellList.add(chartCellDate);
-            chartCellList.add(chartCellAllPeopleCount);
+            chartCellList.add(chartCell0to4Count);
+            chartCellList.add(chartCell4to7Count);
+            chartCellList.add(chartCell7to13Count);
+            chartCellList.add(chartCellGreater13Count);
+            chartCellList.add(chartCellTotalCount);
 
             chartRowList.add(new ChartRow(chartCellList));
         }

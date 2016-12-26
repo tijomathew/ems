@@ -50,9 +50,9 @@ public class PdfExportServiceImpl implements PdfExportService {
         writer.setPageEvent(event);
 
         document.open();
-        table = new PdfPTable(9);//create a table with respective column size
+        table = new PdfPTable(10);//create a table with respective column size
 
-        table.setWidths(new int[]{4, 15, 7, 7, 15, 12, 8, 16, 16});
+        table.setWidths(new int[]{4, 15, 7, 7, 15, 6, 12, 8, 13, 13});
         table.setSpacingBefore(5);
         table.setSpacingAfter(5);
         addCellContentToPDFTable("No.", fontBold, Element.ALIGN_CENTER);
@@ -60,6 +60,7 @@ public class PdfExportServiceImpl implements PdfExportService {
         addCellContentToPDFTable("Phone No.1", fontBold, Element.ALIGN_CENTER);
         addCellContentToPDFTable("Phone No.2", fontBold, Element.ALIGN_CENTER);
         addCellContentToPDFTable("Child Name", fontBold, Element.ALIGN_CENTER);
+        addCellContentToPDFTable("Age Range", fontBold, Element.ALIGN_CENTER);
         addCellContentToPDFTable("Band Code", fontBold, Element.ALIGN_CENTER);
         addCellContentToPDFTable("Day", fontBold, Element.ALIGN_CENTER);
         addCellContentToPDFTable("Check In", fontBold, Element.ALIGN_CENTER);
@@ -88,12 +89,14 @@ public class PdfExportServiceImpl implements PdfExportService {
             if (rowSpan > 0) {
                 for (StudentNode studentNode : parentNode.getStudentNodeList()) {
                     addCellContentToPDFTable(studentNode.getFullName(), fontNormal, Element.ALIGN_LEFT);
+                    addCellContentToPDFTable(studentNode.getAgeRange(), fontNormal, Element.ALIGN_LEFT);
                     addCellContentToPDFTable(studentNode.getBandCode(), fontNormal, Element.ALIGN_LEFT);
                     addCellContentToPDFTable(parentNode.getDay(), fontNormal, Element.ALIGN_LEFT);
                     addCellContentToPDFTable(studentNode.getInTimes(date), fontNormal, Element.ALIGN_LEFT);
                     addCellContentToPDFTable(studentNode.getOutTimes(date), fontNormal, Element.ALIGN_LEFT);
                 }
             } else {
+                addCellContentToPDFTable("", fontNormal, Element.ALIGN_LEFT);
                 addCellContentToPDFTable("", fontNormal, Element.ALIGN_LEFT);
                 addCellContentToPDFTable("", fontNormal, Element.ALIGN_LEFT);
                 addCellContentToPDFTable("", fontNormal, Element.ALIGN_LEFT);

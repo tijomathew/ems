@@ -2,7 +2,6 @@ package org.ems.daos;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.ems.models.StudentNode;
@@ -22,17 +21,17 @@ public class ChildDaoImpl implements ChildDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public Long getAllRegisteredPeople(String registeredDate, String inOutFlag) {
+    public Long getAllRegisteredPeople(String registeredDate, String inOutFlag, String ageRange) {
         Long registeredStudentCounts = 0l;
-        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(StudentNode.class, "studentNode");
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(StudentNode.class, "studentNode").createAlias("studentNode.parentNode", "parentNode");
         if (inOutFlag.equals("In")) {
             criteria.createAlias("studentNode.inOutInformerList", "inoutinfo").add(Restrictions.isNotNull("inoutinfo.inTime")).add(Restrictions.eq("inoutinfo.date", registeredDate));
         } else if (inOutFlag.equals("Out")) {
             criteria.createAlias("studentNode.inOutInformerList", "inoutinfo").add(Restrictions.isNotNull("inoutinfo.outTime")).add(Restrictions.eq("inoutinfo.date", registeredDate));
         } else if (inOutFlag.equals("All")) {
-            criteria.createAlias("studentNode.parentNode", "parentNode");
             criteria.add(Restrictions.eq("parentNode.day", registeredDate));
         }
+        criteria.add(Restrictions.eq("studentNode.ageRange", ageRange));
         registeredStudentCounts = (Long) criteria.setProjection(Projections.rowCount()).uniqueResult();
         if (registeredStudentCounts == null) {
             registeredStudentCounts = 0l;
