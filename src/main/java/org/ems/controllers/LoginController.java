@@ -2,7 +2,6 @@ package org.ems.controllers;
 
 import org.ems.enums.SystemRole;
 import org.ems.helpers.RequestResponseHolder;
-import org.ems.models.ParentNode;
 import org.ems.models.User;
 import org.ems.services.LoginService;
 import org.ems.services.UserService;
@@ -50,10 +49,10 @@ public class LoginController {
             if (loggedInUser != null) {
                 if (loggedInUser.getAlreadyLoggedIn()) {
                     if (loggedInUser.getSystemRole().equals(SystemRole.ADMIN)) {
-                        requestResponseHolder.setAttributeToSession(SystemRole.RMS_CURRENT_USER.toString(), loggedInUser);
+                        requestResponseHolder.setAttributeToSession(SystemRole.EMS_CURRENT_USER.toString(), loggedInUser);
                         return "registerationcounts";
                     } else if (loggedInUser.getSystemRole().equals(SystemRole.ORGANIZER)) {
-                        requestResponseHolder.setAttributeToSession(SystemRole.RMS_CURRENT_USER.toString(), loggedInUser);
+                        requestResponseHolder.setAttributeToSession(SystemRole.EMS_CURRENT_USER.toString(), loggedInUser);
                         return "redirect:/searchviewentry.action";
                     }
                 } else {

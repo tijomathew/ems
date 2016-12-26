@@ -34,11 +34,10 @@ public class RMSInterceptor implements HandlerInterceptor {
             indicatorToProceed = true;
         }
         if (!indicatorToProceed) {
-            if (urlAction.equalsIgnoreCase("registration.action") || urlAction.equalsIgnoreCase("createregistration.action") || urlAction.equalsIgnoreCase("email.action") || urlAction.equalsIgnoreCase("getEmail.action")
-                    ||urlAction.equalsIgnoreCase("getRegisteredFamilyDetails.action")||urlAction.equalsIgnoreCase("wrongpassword.action")||urlAction.equalsIgnoreCase("editregistration.action")) {
+            if (urlAction.equalsIgnoreCase("login.action") || urlAction.equalsIgnoreCase("logout.action") || urlAction.equalsIgnoreCase("loggedin.action") || urlAction.equalsIgnoreCase("changepassword.action")) {
                 indicatorToProceed = true;
             } else {
-                User userFromCurrentSession = requestResponseHolder.getAttributeFromSession(SystemRole.RMS_CURRENT_USER.toString(), User.class);
+                User userFromCurrentSession = requestResponseHolder.getAttributeFromSession(SystemRole.EMS_CURRENT_USER.toString(), User.class);
                 if (userFromCurrentSession != null) {
                     switch (userFromCurrentSession.getSystemRole()) {
                         case ADMIN:
@@ -51,8 +50,8 @@ public class RMSInterceptor implements HandlerInterceptor {
                 }
             }
             if (!indicatorToProceed) {
-                //requestResponseHolder.setAttributeToSession("showURLAccessDenied", new String("This URL cannot be accessed by this User Role"));
-                httpServletResponse.sendRedirect("registration.action");
+                requestResponseHolder.setAttributeToSession("showURLAccessDenied", new String("This URL cannot be accessed by this User Role"));
+                httpServletResponse.sendRedirect("login.action");
                 httpServletResponse.flushBuffer();
             }
         }

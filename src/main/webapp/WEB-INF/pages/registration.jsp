@@ -315,7 +315,7 @@
 <form:form role="form" id="registration-form" modelAttribute="parentNodeForm"
            action="${pageContext.request.contextPath}/createregistration.action"
            method="post">
-    <%--<div class="container">
+    <div class="container">
         <ul class="nav nav-pills">
             <li><a href="showcounts.action">Show Counts</a></li>
             <c:if test="${currentUser.systemRole == 'ADMIN'}">
@@ -329,7 +329,7 @@
             <li><a href="reportpage.action">Report</a></li>
             <li><a href="logout.action">Logout</a></li>
         </ul>
-    </div>--%>
+    </div>
     <div class="mainWrapper">
         <div style="float:right;font-weight:bold"></div>
         <div class="row row-offcanvas row-offcanvas-right">
@@ -337,9 +337,9 @@
                 <h3 class="defaultBold">Seminar Registration Form</h3>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading headerColor">Parent/Guardian Details<a style="float: right;color: #ddd"
+                    <div class="panel-heading headerColor">Parent/Guardian Details<%--<a style="float: right;color: #ddd"
                                                                                      href="${pageContext.request.contextPath}/email.action">
-                        Manage My Registration</a></div>
+                        Manage My Registration</a>--%></div>
                     <div class="panel-body">
                         <div class="row generalFormLayout">
                             <div class="col-md-4">

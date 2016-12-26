@@ -158,10 +158,9 @@ public class StudentNode implements Serializable {
 
     public String getInTimes(String date) {
         Map<String, String> lookUpMap = new HashMap<>();
-        lookUpMap.put("dayOne", "Oct-29");
-        lookUpMap.put("dayTwo", "Oct-30");
-        lookUpMap.put("dayThree", "Oct-31");
-        lookUpMap.put("dayFour", "Nov-1");
+        lookUpMap.put("27-12-2016", "Dec-27");
+        lookUpMap.put("28-12-2016", "Dec-28");
+        lookUpMap.put("29-12-2016", "Dec-29");
         if (!inOutInformerList.isEmpty()) {
             SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MMM-yyyy, HH:MM");
             StringBuilder stringBuilder = new StringBuilder();
@@ -184,10 +183,9 @@ public class StudentNode implements Serializable {
 
     public String getOutTimes(String date) {
         Map<String, String> lookUpMap = new HashMap<>();
-        lookUpMap.put("dayOne", "Oct-29");
-        lookUpMap.put("dayTwo", "Oct-30");
-        lookUpMap.put("dayThree", "Oct-31");
-        lookUpMap.put("dayFour", "Nov-1");
+        lookUpMap.put("27-12-2016", "Dec-27");
+        lookUpMap.put("28-12-2016", "Dec-28");
+        lookUpMap.put("29-12-2016", "Dec-29");
         if (!inOutInformerList.isEmpty()) {
             SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MMM-yyyy, HH:MM");
             StringBuilder stringBuilder = new StringBuilder();
@@ -216,9 +214,6 @@ public class StudentNode implements Serializable {
         Date currentDate = new Date();
         SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM-dd");
         String currentDateInStringFormat = dateFormatter.format(currentDate);
-        if (currentDateInStringFormat.equalsIgnoreCase("Nov-01")) {
-            currentDateInStringFormat = currentDateInStringFormat.replace("0", "");
-        }
         return currentDateInStringFormat;
     }
 

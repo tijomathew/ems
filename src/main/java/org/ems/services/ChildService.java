@@ -12,9 +12,7 @@ import java.util.List;
  */
 public interface ChildService {
 
-    Long getAllRegisteredStudentsOnCategoryAndOct29Wise(String category, String date, String property, String inOutFlag);
-
-    Long getAllRegisteredStudentsOnCategoryAndNov1Wise(String inOutFlag);
+    Long getAllRegisteredPeople(String property, String inOutFlag);
 
     ChartResultContainer getChartResultContainer(String tqx, String inOutFlag);
 

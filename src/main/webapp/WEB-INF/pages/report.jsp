@@ -32,8 +32,8 @@
         jQuery(document).ready(function () {
             $('#pdfReport').click(function () {
                 jQuery("<form action='" + encodeURI("pdfreport.action?massCentre=" + $('select[name=massCentre]').val() +
-                                "&date=" + $(':radio[name=date]:checked').val() + '&category= ' + +$('select[name=category]').val())
-                        + "' method='post' accept-charset='utf-8'" + "/>")
+                "&date=" + $(':radio[name=date]:checked').val())
+                + "' method='post' accept-charset='utf-8'" + "/>")
                         .appendTo('body').submit().remove();
             });
         });
@@ -73,34 +73,17 @@
                                     <label for="massCentre">Mass Centre:</label>
                                     <select id='massCentre' name="massCentre">
                                         <option value="All" selected="true">All</option>
-                                        <option value="Beaumont">Beaumont</option>
-                                        <option value="Blanchardstown">Blanchardstown</option>
-                                        <option value="Bray">Bray</option>
-                                        <option value="Inchicore">Inchicore</option>
-                                        <option value="Lucan">Lucan</option>
-                                        <option value="Phibsborough">Phibsborough</option>
-                                        <option value="StJosephs">StJosephs</option>
-                                        <option value="Swords">Swords</option>
                                         <option value="Tallaght">Tallaght</option>
-                                        <option value="Other">Other</option>
+                                        <option value="Lucan">Lucan</option>
+                                        <option value="Beaumont">Beaumont</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label>Select Date:</label>
-                                    <input type="radio" name="date" value="all"> All<br>
-                                    <input type="radio" name="date" value="dayOne" checked> Oct 29<br>
-                                    <input type="radio" name="date" value="dayTwo"> Oct 30<br>
-                                    <input type="radio" name="date" value="dayThree"> Oct 31<br>
-                                    <input type="radio" name="date" value="dayFour"> Nov 1<br>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="category">Category:</label>
-                                    <select id='category' name="category">
-                                        <option value="all" selected="true">All</option>
-                                        <option value="Junior">Junior</option>
-                                        <option value="Senior">Senior</option>
-                                        <option value="SuperSenior">SuperSenior</option>
-                                    </select>
+                                    <input type="radio" name="date" value="all" checked> All<br>
+                                    <input type="radio" name="date" value="27-12-2016">27-12-2016<br>
+                                    <input type="radio" name="date" value="28-12-2016">28-12-2016<br>
+                                    <input type="radio" name="date" value="29-12-2016">29-12-2016<br>
                                 </div>
                             </div>
                             <div class="col-md-12">

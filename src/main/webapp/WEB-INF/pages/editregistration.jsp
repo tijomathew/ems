@@ -336,7 +336,7 @@
 <form:form role="form" id="registration-form" modelAttribute="parentNodeForm"
            action="${pageContext.request.contextPath}/editregistration.action"
            method="post">
-    <%-- <div class="container">
+     <div class="container">
          <ul class="nav nav-pills">
              <li><a href="showcounts.action">Show Counts</a></li>
              <c:if test="${currentUser.systemRole == 'ADMIN'}">
@@ -350,7 +350,7 @@
              <li><a href="reportpage.action">Report</a></li>
              <li><a href="logout.action">Logout</a></li>
          </ul>
-     </div>--%>
+     </div>
     <div class="mainWrapper">
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-xs-12 col-sm-12">

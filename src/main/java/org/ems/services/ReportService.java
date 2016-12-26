@@ -9,5 +9,5 @@ import java.io.File;
  */
 public interface ReportService {
 
-    File getReport(String massCentre, String date, String category) throws DocumentException;
+    File getReport(String massCentre, String date) throws DocumentException;
 }

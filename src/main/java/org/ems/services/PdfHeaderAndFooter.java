@@ -22,7 +22,6 @@ public class PdfHeaderAndFooter extends PdfPageEventHelper {
     private BaseFont baseFont;
     String reportName = null;
     String date = null;
-    private Map<String, String> lookUpMap;
 
     private static Font fontBold = FontFactory.getFont("Verdana", 9, Font.BOLD);
     private static Font fontNormal = FontFactory.getFont("Verdana", 8, Font.NORMAL);
@@ -34,13 +33,6 @@ public class PdfHeaderAndFooter extends PdfPageEventHelper {
         this.reportName = reportName;
         this.date = date;
         this.baseFont = fontNormal.getCalculatedBaseFont(BaseFont.NOT_EMBEDDED);
-        lookUpMap = new HashMap<>();
-        lookUpMap.put("all", "All");
-        lookUpMap.put("dayOne", "Oct-29");
-        lookUpMap.put("dayTwo", "Oct-30");
-        lookUpMap.put("dayThree", "Oct-31");
-        lookUpMap.put("dayFour", "Nov-1");
-
     }
 
     @Override
@@ -82,7 +74,7 @@ public class PdfHeaderAndFooter extends PdfPageEventHelper {
             phrase.add(chunk);
             chunk = new Chunk(reportName.toUpperCase().concat("\n\n"), fontBold);
             phrase.add(chunk);
-            chunk = new Chunk(lookUpMap.get(date).concat("\n\n"), fontBold);
+            chunk = new Chunk(date.concat("\n\n"), fontBold);
             phrase.add(chunk);
             phrase.add(Chunk.NEWLINE);
             phrase.add(Chunk.NEWLINE);

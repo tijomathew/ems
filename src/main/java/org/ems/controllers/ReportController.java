@@ -70,15 +70,14 @@ public class ReportController {
     @ResponseBody
     public Object pdfCustomLogReport(HttpServletRequest request, HttpServletResponse response,
                                      @RequestParam(value = "massCentre", required = false) String massCentre,
-                                     @RequestParam(value = "date", required = false) String date,
-                                     @RequestParam(value = "category", required = false) String category) {
+                                     @RequestParam(value = "date", required = false) String date) {
 
 
         try {
-            File pdfFile = reportService.getReport(massCentre, date, category);
+            File pdfFile = reportService.getReport(massCentre, date);
             if (null != pdfFile) {
                 response.setContentType("application/pdf");
-                response.setHeader("Content-disposition", "attachment; filename=Syro_Malabar_Catholic_Church_Retreat_Report.pdf");
+                response.setHeader("Content-disposition", "attachment; filename=Syro_Malabar_Catholic_Church_Seminar_Report.pdf");
                 FileInputStream in = new FileInputStream(pdfFile);
                 OutputStream out = response.getOutputStream();
                 byte[] buffer = new byte[8192];

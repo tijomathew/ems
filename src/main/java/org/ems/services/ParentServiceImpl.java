@@ -19,8 +19,8 @@ public class ParentServiceImpl implements ParentService {
     private ParentDao dao;
 
     @Override
-    public List<ParentNode> getParentNodes(String massCentre, String date, String category) {
-        return dao.getParentNodes(massCentre, date, category);
+    public List<ParentNode> getParentNodes(String massCentre, String date) {
+        return dao.getParentNodes(massCentre, date);
     }
 
     @Override

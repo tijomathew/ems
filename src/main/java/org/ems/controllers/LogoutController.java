@@ -22,9 +22,9 @@ public class LogoutController {
     @RequestMapping(value = "logout.action", method = RequestMethod.GET)
     public String loginPageDisplay(Model model) {
         model.addAttribute("loginUser", new User());
-        User currentUser = requestResponseHolder.getAttributeFromSession(SystemRole.RMS_CURRENT_USER.toString(), User.class);
+        User currentUser = requestResponseHolder.getAttributeFromSession(SystemRole.EMS_CURRENT_USER.toString(), User.class);
         if (currentUser != null) {
-            requestResponseHolder.removeAttributeFromSession(SystemRole.RMS_CURRENT_USER.toString());
+            requestResponseHolder.removeAttributeFromSession(SystemRole.EMS_CURRENT_USER.toString());
             requestResponseHolder.getCurrentSession().invalidate();
         }
         return "login";

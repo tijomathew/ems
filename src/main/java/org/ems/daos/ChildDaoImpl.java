@@ -22,37 +22,17 @@ public class ChildDaoImpl implements ChildDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public Long getAllRegisteredStudentsOnCategoryAndOct29Wise(String category, String date, String property, String inOutFlag) {
+    public Long getAllRegisteredPeople(String registeredDate, String inOutFlag) {
         Long registeredStudentCounts = 0l;
-        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(StudentNode.class, "studentNode").add(Restrictions.eq("studentNode.retreatSection", category));
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(StudentNode.class, "studentNode");
         if (inOutFlag.equals("In")) {
-            criteria.createAlias("studentNode.inOutInformerList", "inoutinfo").add(Restrictions.isNotNull("inoutinfo.inTime")).add(Restrictions.eq("inoutinfo.date", date));
+            criteria.createAlias("studentNode.inOutInformerList", "inoutinfo").add(Restrictions.isNotNull("inoutinfo.inTime")).add(Restrictions.eq("inoutinfo.date", registeredDate));
         } else if (inOutFlag.equals("Out")) {
-            criteria.createAlias("studentNode.inOutInformerList", "inoutinfo").add(Restrictions.isNotNull("inoutinfo.outTime")).add(Restrictions.eq("inoutinfo.date", date));
+            criteria.createAlias("studentNode.inOutInformerList", "inoutinfo").add(Restrictions.isNotNull("inoutinfo.outTime")).add(Restrictions.eq("inoutinfo.date", registeredDate));
         } else if (inOutFlag.equals("All")) {
-            criteria.add(Restrictions.eq("studentNode." + property, date));
+            criteria.createAlias("studentNode.parentNode", "parentNode");
+            criteria.add(Restrictions.eq("parentNode.day", registeredDate));
         }
-        registeredStudentCounts = (Long) criteria.setProjection(Projections.rowCount()).uniqueResult();
-        if (registeredStudentCounts == null) {
-            registeredStudentCounts = 0l;
-        }
-        return registeredStudentCounts;
-    }
-
-    @Override
-    public Long getAllRegisteredStudentsOnCategoryAndNov1Wise(String inOutFlag) {
-        Long registeredStudentCounts = 0l;
-        Criterion retreatSelectionSenior = Restrictions.eq("studentNode.retreatSection", "Senior");
-        Criterion retreatSelectionSuperSenior = Restrictions.eq("studentNode.retreatSection", "SuperSenior");
-
-        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(StudentNode.class, "studentNode").add(Restrictions.or(retreatSelectionSenior, retreatSelectionSuperSenior)).add(Restrictions.eq("studentNode.dayFour", "Nov-1"));
-
-        if (inOutFlag.equals("In")) {
-            criteria.createAlias("studentNode.inOutInformerList", "inoutinfo").add(Restrictions.isNotNull("inoutinfo.inTime")).add(Restrictions.eq("inoutinfo.date", "Nov-1"));
-        } else if (inOutFlag.equals("Out")) {
-            criteria.createAlias("studentNode.inOutInformerList", "inoutinfo").add(Restrictions.isNotNull("inoutinfo.outTime")).add(Restrictions.eq("inoutinfo.date", "Nov-1"));
-        }
-
         registeredStudentCounts = (Long) criteria.setProjection(Projections.rowCount()).uniqueResult();
         if (registeredStudentCounts == null) {
             registeredStudentCounts = 0l;

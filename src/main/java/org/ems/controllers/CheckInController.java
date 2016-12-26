@@ -108,7 +108,7 @@ public class CheckInController {
                             InOutInformer inOutInformer = new InOutInformer();
                             inOutInformer.setDate(getCurrentDateAsString());
                             inOutInformer.setInTime(new Date());
-                            User userFromCurrentSession = requestResponseHolder.getAttributeFromSession(SystemRole.RMS_CURRENT_USER.toString(), User.class);
+                            User userFromCurrentSession = requestResponseHolder.getAttributeFromSession(SystemRole.EMS_CURRENT_USER.toString(), User.class);
                             inOutInformer.setDoneInBy(userFromCurrentSession.getId());
                             inOutInformer.setStudentNode(studentNode);
                             studentNode.addInOutInformer(inOutInformer);
@@ -133,9 +133,6 @@ public class CheckInController {
         Date currentDate = new Date();
         SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM-dd");
         String currentDateInStringFormat = dateFormatter.format(currentDate);
-        if (currentDateInStringFormat.equalsIgnoreCase("Nov-01")) {
-            currentDateInStringFormat=currentDateInStringFormat.replace("0", "");
-        }
         return currentDateInStringFormat;
     }
 }

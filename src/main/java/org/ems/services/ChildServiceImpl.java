@@ -28,24 +28,12 @@ public class ChildServiceImpl implements ChildService {
     }
 
     @Override
-    public Long getAllRegisteredStudentsOnCategoryAndOct29Wise(String category, String date, String property, String inOutFlag) {
-        if (category == null) {
-            throw new IllegalArgumentException("category cannot be null!!..");
-        }
-        if (date == null) {
-            throw new IllegalArgumentException("date cannot be null!!..");
-        }
-        if (property == null) {
-            throw new IllegalArgumentException("property cannot be null!!..");
+    public Long getAllRegisteredPeople(String registeredDate, String inOutFlag) {
+        if (registeredDate == null) {
+            throw new IllegalArgumentException("registeredDate cannot be null!!..");
         }
 
-        return childDao.getAllRegisteredStudentsOnCategoryAndOct29Wise(category, date, property, inOutFlag);
-    }
-
-    @Override
-    public Long getAllRegisteredStudentsOnCategoryAndNov1Wise(String inOutFlag) {
-
-        return childDao.getAllRegisteredStudentsOnCategoryAndNov1Wise(inOutFlag);
+        return childDao.getAllRegisteredPeople(registeredDate, inOutFlag);
     }
 
     @Override
@@ -70,18 +58,10 @@ public class ChildServiceImpl implements ChildService {
         if (chartColList.isEmpty()) {
 
             ChartCol chartColOne = new ChartCol("date", "Date", "date", "string");
-            ChartCol chartColTwo = new ChartCol("junior", "Junior", "junior", "number");
-            ChartCol chartColThree = new ChartCol("senior", "Senior", "senior", "number");
-            ChartCol chartColFour = new ChartCol("superSenior", "Super Senior", "superSenior", "number");
-            ChartCol chartColFive = new ChartCol("youth", "Youth", "youth", "number");
-            ChartCol chartColSix = new ChartCol("total", "Total", "total", "number");
+            ChartCol chartColTwo = new ChartCol("people", "People", "people", "number");
 
             chartColList.add(chartColOne);
             chartColList.add(chartColTwo);
-            chartColList.add(chartColThree);
-            chartColList.add(chartColFour);
-            chartColList.add(chartColFive);
-            chartColList.add(chartColSix);
         }
         return chartColList;
     }
@@ -89,54 +69,21 @@ public class ChildServiceImpl implements ChildService {
     private List<ChartRow> getChartRows(String inOutFlag) {
         List<ChartRow> chartRowList = new ArrayList<>();
 
-        String[] date = new String[]{"Oct-29", "Oct-30", "Oct-31"};
-        String[] property = new String[]{"dayOne", "dayTwo", "dayThree"};
+        String[] date = new String[]{"Dec-27", "Dec-28", "Dec-29"};
+        String[] registeredDates = new String[]{"27-12-2016", "28-12-2016", "29-12-2016"};
 
         for (int i = 0; i < 3; i++) {
 
             List<ChartCell> chartCellList = new ArrayList<>();
 
             ChartCell<String> chartCellDate = new ChartCell<>(date[i], date[i]);
-            ChartCell<Long> chartCellJuniorCount = new ChartCell<>(getAllRegisteredStudentsOnCategoryAndOct29Wise("Junior", date[i], property[i], inOutFlag), getAllRegisteredStudentsOnCategoryAndOct29Wise("Junior", date[i], property[i], inOutFlag).toString());
-            ChartCell<Long> chartCellSeniorCount = new ChartCell<>(getAllRegisteredStudentsOnCategoryAndOct29Wise("Senior", date[i], property[i], inOutFlag), getAllRegisteredStudentsOnCategoryAndOct29Wise("Senior", date[i], property[i], inOutFlag).toString());
-            ChartCell<Long> chartCellSuperSeniorCount = new ChartCell<>(getAllRegisteredStudentsOnCategoryAndOct29Wise("SuperSenior", date[i], property[i], inOutFlag), getAllRegisteredStudentsOnCategoryAndOct29Wise("SuperSenior", date[i], property[i], inOutFlag).toString());
-
-
-            ChartCell<Long> chartCellYouthCount = new ChartCell<>(0l, String.valueOf(0));
-
-            Long totalCountByRowWise = getAllRegisteredStudentsOnCategoryAndOct29Wise("Junior", date[i], property[i], inOutFlag) + getAllRegisteredStudentsOnCategoryAndOct29Wise("Senior", date[i], property[i], inOutFlag) + getAllRegisteredStudentsOnCategoryAndOct29Wise("SuperSenior", date[i], property[i], inOutFlag);
-
-            ChartCell<Long> chartCellTotalCount = new ChartCell<>(totalCountByRowWise, totalCountByRowWise.toString());
+            ChartCell<Long> chartCellAllPeopleCount = new ChartCell<>(getAllRegisteredPeople(registeredDates[i], inOutFlag), getAllRegisteredPeople(registeredDates[i], inOutFlag).toString());
 
             chartCellList.add(chartCellDate);
-            chartCellList.add(chartCellJuniorCount);
-            chartCellList.add(chartCellSeniorCount);
-            chartCellList.add(chartCellSuperSeniorCount);
-            chartCellList.add(chartCellYouthCount);
-            chartCellList.add(chartCellTotalCount);
+            chartCellList.add(chartCellAllPeopleCount);
 
             chartRowList.add(new ChartRow(chartCellList));
         }
-
-        ChartCell<String> chartCellDate = new ChartCell<>("Nov-1", "Nov-1");
-        ChartCell<Long> chartCellJuniorCount = new ChartCell<>(0l, String.valueOf(0));
-        ChartCell<Long> chartCellSeniorCount = new ChartCell<>(0l, String.valueOf(0));
-        ChartCell<Long> chartCellSuperSeniorCount = new ChartCell<>(0l, String.valueOf(0));
-
-        ChartCell<Long> chartCellYouthCount = new ChartCell<>(getAllRegisteredStudentsOnCategoryAndNov1Wise(inOutFlag), getAllRegisteredStudentsOnCategoryAndNov1Wise(inOutFlag).toString());
-
-        ChartCell<Long> chartCellTotalCount = new ChartCell<>(getAllRegisteredStudentsOnCategoryAndNov1Wise(inOutFlag), getAllRegisteredStudentsOnCategoryAndNov1Wise(inOutFlag).toString());
-
-        List<ChartCell> chartCellList = new ArrayList<>();
-
-        chartCellList.add(chartCellDate);
-        chartCellList.add(chartCellJuniorCount);
-        chartCellList.add(chartCellSeniorCount);
-        chartCellList.add(chartCellSuperSeniorCount);
-        chartCellList.add(chartCellYouthCount);
-        chartCellList.add(chartCellTotalCount);
-
-        chartRowList.add(new ChartRow(chartCellList));
 
         return chartRowList;
     }

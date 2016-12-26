@@ -81,47 +81,20 @@
                         <div class="col-md-12">
                             <c:forEach items="${searchParent.studentNodeList}" var="element"
                                        varStatus="count">
-                                <div class="col-md-3">
+                                <div class="col-md-5">
                                     <label>Child's Name:</label><c:if
                                         test="${not empty element.firstName}">${element.firstName} </c:if><c:if
                                         test="${not empty element.lastName}"> ${element.lastName}</c:if>
                                 </div>
                                 <div class="col-md-3">
-                                    <label>Section:</label><span>
-                                        ${element.retreatSection}</span>
-                                </div>
-                                <div class="col-md-2">
                                     <label>Band Code:</label>
-                                    <c:if test="${not empty element.retreatSection}">
-                                        <c:if test="${element.retreatSection == 'Junior'}"> <span
-                                                style="background-color: green;color: white"><c:if
+                                   <span style="background-color: green;color: white"><c:if
                                                 test="${not empty element.bandCode}">${element.bandCode}</c:if></span>
-                                        </c:if>
-                                    </c:if>
-                                    <c:if test="${not empty element.retreatSection}">
-                                        <c:if test="${element.retreatSection == 'Senior'}"> <span
-                                                style="background-color: yellow;color: black"><c:if
-                                                test="${not empty element.bandCode}">${element.bandCode}</c:if></span>
-                                        </c:if>
-                                    </c:if>
-                                    <c:if test="${not empty element.retreatSection}">
-                                        <c:if test="${element.retreatSection == 'SuperSenior'}"> <span
-                                                style="background-color: red;color: white"> <c:if
-                                                test="${not empty element.bandCode}">${element.bandCode}</c:if></span>
-                                        </c:if>
-                                    </c:if>
+
                                 </div>
                                 <div class="col-md-4">
-                                    <label>Days:</label>
-                                    <c:if
-                                            test="${not empty element.dayOne}">${element.dayOne}, </c:if>
-                                    <c:if
-                                            test="${not empty element.dayTwo}">${element.dayTwo} , </c:if>
-                                    <c:if
-                                            test="${not empty element.dayThree}">${element.dayThree} , </c:if>
-                                    <c:if
-                                            test="${not empty element.dayFour}">${element.dayFour}  </c:if>
-
+                                    <label>Day:</label>
+                                        ${searchParent.day}
                                 </div>
 
                             </c:forEach>

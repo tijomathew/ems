@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface ParentDao {
 
-    List<ParentNode> getParentNodes(String massCentre, String date, String category);
+    List<ParentNode> getParentNodes(String massCentre, String date);
 
     ParentNode getCheckInOutParentNodeDetails(ParentNode parentNode);
 
