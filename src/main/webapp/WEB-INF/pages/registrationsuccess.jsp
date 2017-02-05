@@ -21,7 +21,7 @@
     <script type="text/javascript">
         jQuery(document).ready(function () {
             $('#finishButton').click(function () {
-                window.location.href = "http://syromalabar.ie/";
+                window.location.href = "getEditParentEntryForm.action";
             });
         });
     </script>

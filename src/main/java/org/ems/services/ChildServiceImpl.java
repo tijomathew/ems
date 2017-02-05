@@ -63,6 +63,7 @@ public class ChildServiceImpl implements ChildService {
             ChartCol chartColFour = new ChartCol("7 and < 13", "7 and < 13", "7 and < 13", "number");
             ChartCol chartColFive = new ChartCol("13 and above", "13 and above", "13 and above", "number");
             ChartCol chartColSix = new ChartCol("total", "Total", "total", "number");
+            ChartCol chartColSeven = new ChartCol("familyCount", "Family Count", "familyCount", "number");
 
             chartColList.add(chartColOne);
             chartColList.add(chartColTwo);
@@ -70,6 +71,7 @@ public class ChildServiceImpl implements ChildService {
             chartColList.add(chartColFour);
             chartColList.add(chartColFive);
             chartColList.add(chartColSix);
+            chartColList.add(chartColSeven);
         }
         return chartColList;
     }
@@ -94,12 +96,15 @@ public class ChildServiceImpl implements ChildService {
 
             ChartCell<Long> chartCellTotalCount = new ChartCell<>(totalCountByRowWise, totalCountByRowWise.toString());
 
+            ChartCell<Long> chartCellFamilyCount = new ChartCell<>(getAllRegisteredFamily(registeredDates[i], inOutFlag, null), getAllRegisteredFamily(registeredDates[i], inOutFlag, null).toString());
+
             chartCellList.add(chartCellDate);
             chartCellList.add(chartCell0to4Count);
             chartCellList.add(chartCell4to7Count);
             chartCellList.add(chartCell7to13Count);
             chartCellList.add(chartCellGreater13Count);
             chartCellList.add(chartCellTotalCount);
+            chartCellList.add(chartCellFamilyCount);
 
             chartRowList.add(new ChartRow(chartCellList));
         }
@@ -115,5 +120,14 @@ public class ChildServiceImpl implements ChildService {
     @Override
     public List<StudentNode> getChildsByIds(List<Long> childIds) {
         return childDao.getChildsByIds(childIds);
+    }
+
+    @Override
+    public Long getAllRegisteredFamily(String registeredDate, String inOutFlag, String ageRange) {
+        if (registeredDate == null) {
+            throw new IllegalArgumentException("registeredDate cannot be null!!..");
+        }
+
+        return childDao.getAllRegisteredFamilyCount(registeredDate, inOutFlag, ageRange);
     }
 }

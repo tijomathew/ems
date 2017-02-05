@@ -19,4 +19,6 @@ public interface ChildService {
     List<StudentNode> getChildDetails(Long parentId);
 
     List<StudentNode> getChildsByIds(List<Long> childIds);
+
+    Long getAllRegisteredFamily(String property, String inOutFlag, String ageRange);
 }

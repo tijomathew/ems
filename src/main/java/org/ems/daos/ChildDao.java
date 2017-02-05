@@ -15,4 +15,6 @@ public interface ChildDao {
     List<StudentNode> getChildDetails(Long parentId);
 
     List<StudentNode> getChildsByIds(List<Long> childIds);
+
+    Long getAllRegisteredFamilyCount(String property, String inOutFlag, String ageRange);
 }
